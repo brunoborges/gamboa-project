@@ -1,11 +1,10 @@
-  ____                 _                      ____            _           _   
- / ___| __ _ _ __ ___ | |__   ___   __ _     |  _ \ _ __ ___ (_) ___  ___| |_ 
-| |  _ / _` | '_ ` _ \| '_ \ / _ \ / _` |    | |_) | '__/ _ \| |/ _ \/ __| __|
-| |_| | (_| | | | | | | |_) | (_) | (_| |    |  __/| | | (_) | |  __/ (__| |_ 
- \____|\__,_|_| |_| |_|_.__/ \___/ \__,_|    |_|   |_|  \___// |\___|\___|\__|
-                                                           |__/               
-v1.0-SNAPSHOT
-=============
+      ____                 _                      ____            _           _   
+     / ___| __ _ _ __ ___ | |__   ___   __ _     |  _ \ _ __ ___ (_) ___  ___| |_ 
+    | |  _ / _` | '_ ` _ \| '_ \ / _ \ / _` |    | |_) | '__/ _ \| |/ _ \/ __| __|
+    | |_| | (_| | | | | | | |_) | (_) | (_| |    |  __/| | | (_) | |  __/ (__| |_ 
+     \____|\__,_|_| |_| |_|_.__/ \___/ \__,_|    |_|   |_|  \___// |\___|\___|\__|
+                                                               |__/               
+=======
 
 What is the Gamboa Project?
 -------
@@ -18,19 +17,12 @@ How to create a project?
 Gamboa is based on Apache Maven and has an Archetype. Previous knowledge on Maven is required. To start your project, follow these steps:
 
 1. Install Apache Maven 3.0
-
 2. Install MongoDB
-
 3. Clone the Gamboa Project repository locally
-
     $ git clone git@github.com:gamboa/gamboa-project.git
-
 3. Go to the gamboa-archetype folder and install it
-
     $ mvn install
-
 4. Create your project
-
     $ mvn archetype:generate \
         -DarchetypeGroupId=org.gamboa-project \
         -DarchetypeArtifactId=gamboa-archetype \
@@ -38,9 +30,7 @@ Gamboa is based on Apache Maven and has an Archetype. Previous knowledge on Mave
         -DgroupId=com.mycompany \
         -DartifactId=myproject \
         -DinteractiveMode=false
-
   5) Run it
-
     $ cd myproject
     $ mvn jetty:run
 
