@@ -4,7 +4,7 @@
 | |_| | (_| | | | | | | |_) | (_) | (_| |    |  __/| | | (_) | |  __/ (__| |_ 
  \____|\__,_|_| |_| |_|_.__/ \___/ \__,_|    |_|   |_|  \___// |\___|\___|\__|
                                                            |__/               
-v1.0
+v1.0-SNAPSHOT
 
 === What is the Gamboa Project? ===
 Is a project structure for rapid web application development based on Scala, Apache Wicket, Spring Framework and MongoDB.
