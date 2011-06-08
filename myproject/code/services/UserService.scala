@@ -5,6 +5,7 @@ import code.Record
 import com.mongodb.DB
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
+import scala.collection.JavaConversions._
 
 trait UserService extends GenericService {
 
