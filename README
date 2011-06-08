@@ -20,7 +20,7 @@ Follow these steps:
 
      $ mvn install
 
-  4) Executethe following command line:
+  4) Create your project
 
      $ mvn archetype:generate \
        -DarchetypeGroupId=org.gamboa-project \
@@ -30,4 +30,7 @@ Follow these steps:
        -DartifactId=myproject \
        -DinteractiveMode=false
 
+  5) Run it
 
+     $ cd myproject
+     $ mvn jetty:run
