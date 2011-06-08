@@ -1,5 +1,6 @@
 package code
 
+import pages.PageNotFound
 import org.apache.wicket.authroles.authentication.AuthenticatedWebApplication
 import code.pages.{ HomePage, SignUp, SignIn }
 import org.apache.wicket.Component
@@ -16,18 +17,13 @@ class Application extends AuthenticatedWebApplication {
   override def init() {
     super.init()
 
-    object autoMarkupId extends IComponentInstantiationListener {
-      def onInstantiation(component: Component) {
-        if (component.isInstanceOf[FormComponent[_]]) {
-          component.setOutputMarkupId(true)
-          component.setMarkupId(component.getId())
-        }
-      }
-    }
+    // disable the autoFormMarkupId if you don't want wicket:id to become CSS id
+    getComponentInstantiationListeners().add(autoFormMarkupId)
 
-    getComponentInstantiationListeners().add(autoMarkupId)
     getComponentInstantiationListeners().add(new SpringComponentInjector(this))
     getMarkupSettings().setStripWicketTags(true)
+
+    mount(new MountedMapper("/404", classOf[PageNotFound]))
   }
 
   def getHomePage = classOf[HomePage]
