@@ -5,22 +5,27 @@
  \____|\__,_|_| |_| |_|_.__/ \___/ \__,_|    |_|   |_|  \___// |\___|\___|\__|
                                                            |__/               
 v1.0-SNAPSHOT
+=============
 
-=== What is the Gamboa Project? ===
-Is a project structure for rapid web application development based on Scala, Apache Wicket, Spring Framework and MongoDB.
+What is the Gamboa Project?
+-------
+Is a project structure for rapid web application development based on Scala, Apache Wicket, Spring Framework and MongoDB. 
 
-=== How to create a project? ===
+It has a clean directory structure that fits the common scenario where designers and developers work together to build a web application, but want clear separation of design/layout and programming code.
+
+How to create a project?
+-------
 Follow these steps:
 
-  1) Install Apache Maven 3.0
+1. Install Apache Maven 3.0
 
-  2) Install MongoDB
+2. Install MongoDB
 
-  3) Get the gamboa-archetype and run 
+3. Get the gamboa-archetype and run 
 
      $ mvn install
 
-  4) Create your project
+4. Create your project
 
      $ mvn archetype:generate \
        -DarchetypeGroupId=org.gamboa-project \
@@ -34,3 +39,6 @@ Follow these steps:
 
      $ cd myproject
      $ mvn jetty:run
+
+=== IDE Support ===
+Projects created with Gamboa Archetype already have Eclipse files configured
