@@ -23,6 +23,4 @@ class EmailSettings {
   @BeanProperty
   var template: String = _
 
-
 }
-

@@ -1,6 +1,6 @@
 package code
 
-import pages.PageNotFound
+import pages.{ PageNotFound, InternalError }
 import org.apache.wicket.authroles.authentication.AuthenticatedWebApplication
 import code.pages.{ HomePage, SignUp, SignIn }
 import org.apache.wicket.Component
@@ -24,6 +24,7 @@ class Application extends AuthenticatedWebApplication {
     getMarkupSettings().setStripWicketTags(true)
 
     mount(new MountedMapper("/404", classOf[PageNotFound]))
+    mount(new MountedMapper("/500", classOf[InternalError]))
   }
 
   def getHomePage = classOf[HomePage]

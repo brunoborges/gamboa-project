@@ -3,13 +3,11 @@ package code.pages
 import org.apache.wicket.RestartResponseException
 import org.apache.wicket.authroles.authorization.strategies.role.annotations.AuthorizeInstantiation
 import org.apache.wicket.markup.html.WebMarkupContainer;
+import org.apache.wicket.markup.html.link.BookmarkablePageLink
 
-class HomePage extends BaseTemplate {
 
-  if (session.isSignedIn()) {
-    throw new RestartResponseException(classOf[MainPage]);
-  }
+class MainPage extends BaseTemplate with TraitUserPage {
 
-  setStatelessHint(true);
+  add(new BookmarkablePageLink("adminLink", classOf[AdminPage]))
 
 }

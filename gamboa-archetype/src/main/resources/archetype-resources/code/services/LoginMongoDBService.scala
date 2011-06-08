@@ -8,8 +8,8 @@ import org.springframework.security.core.authority.GrantedAuthorityImpl
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.stereotype.Service
 
-@Service("loginMongoDBService")
-class LoginMongoDBServiceImpl extends UserDetailsService {
+@Service
+class LoginMongoDBService extends UserDetailsService {
 
   @Autowired
   var signUp: SignUpService = _
