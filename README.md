@@ -4,10 +4,8 @@
     | |_| | (_| | | | | | | |_) | (_) | (_| |    |  __/| | | (_) | |  __/ (__| |_ 
      \____|\__,_|_| |_| |_|_.__/ \___/ \__,_|    |_|   |_|  \___// |\___|\___|\__|
                                                                |__/               
+What is it?
 =======
-
-What is the Gamboa Project?
--------
 Is a project structure for rapid web application development based on Scala, Apache Wicket, Spring Framework and MongoDB. It also comes with Velocity for email templates processing.
 
 It has a clean directory structure that fits the common scenario where designers and developers work together to build a web application, but want clear separation of design/layout and programming code.
@@ -19,10 +17,13 @@ Gamboa is based on Apache Maven and has an Archetype. Previous knowledge on Mave
 1. Install Apache Maven 3.0
 2. Install MongoDB
 3. Clone the Gamboa Project repository locally
+
     $ git clone git@github.com:gamboa/gamboa-project.git
 3. Go to the gamboa-archetype folder and install it
+
     $ mvn install
 4. Create your project
+
     $ mvn archetype:generate \
         -DarchetypeGroupId=org.gamboa-project \
         -DarchetypeArtifactId=gamboa-archetype \
@@ -30,7 +31,8 @@ Gamboa is based on Apache Maven and has an Archetype. Previous knowledge on Mave
         -DgroupId=com.mycompany \
         -DartifactId=myproject \
         -DinteractiveMode=false
-  5) Run it
+5. Run it
+
     $ cd myproject
     $ mvn jetty:run
 
