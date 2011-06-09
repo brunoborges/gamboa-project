@@ -24,13 +24,8 @@ Gamboa is based on Apache Maven and has an Archetype. Previous knowledge on Mave
     $ mvn install
 4. Create your project
 
-    $ mvn archetype:generate \
-        -DarchetypeGroupId=org.gamboa-project \
-        -DarchetypeArtifactId=gamboa-archetype \
-        -DarchetypeVersion=1.0-SNAPSHOT \
-        -DgroupId=com.mycompany \
-        -DartifactId=myproject \
-        -DinteractiveMode=false
+    $ mvn archetype:generate -DarchetypeGroupId=org.gamboa-project -DarchetypeArtifactId=gamboa-archetype -DarchetypeVersion=1.0-SNAPSHOT -DgroupId=com.mycompany -DartifactId=myproject -DinteractiveMode=false
+
 5. Run it
 
     $ cd myproject
@@ -87,6 +82,7 @@ Here's the list of all Gamboa integrated frameworks and technologies:
 Roadmap
 -------
 The Gamboa project aims to be not only a Maven archetype, but also a solid base for developers who want to quickly build web applications that already
+
 Contributing
 -------
 As any other GitHub project: fork it and contribute. If you want to share your changes, request a pull.
