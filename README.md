@@ -59,7 +59,7 @@ All HTML files must go into the `layout/` folder. For each HTML page, there must
 
 Logical services are Spring-based POJOs and must go to `code/services` as this is the convention for Annotations scan defined in the `applicationContext.xml`. If you feel you must change this, modify that XML as you wish.
 
-The `code/email` package has some useful classes to sending emails. Templates must go to `config/templates` and can be HTMLs. All configuration like SMTP properties are located in the `emailContext.xml`.
+The `code/services/email` package has some useful classes to sending emails. Templates must go to `config/templates` and can be HTMLs. All configuration like SMTP properties are located in the `emailContext.xml`.
 
 ### Want a clean structure?
 If you want a clean project structure, without any code, you have two options:
