@@ -62,7 +62,13 @@ Logical services are Spring-based POJOs and must go to `code/services` as this i
 The `code/email` package has some useful classes to sending emails. Templates must go to `config/templates` and can be HTMLs. All configuration like SMTP properties are located in the `emailContext.xml`.
 
 ### Want a clean structure?
-If you want a clean project structure, without any code, just create a project and delete everything from `code/pages` and `layout`. Then drop your functional prototype to `layout` and start coding from scratch. Remember to follow Wicket's convention (one WebPage/Panel/Border class for each HTML file).
+If you want a clean project structure, without any code, you have two options:
+
+1. Just create a project based on `gamboa-archetype` and delete everything from `code/pages` and `layout`. Then drop your functional prototype to `layout` and start coding from scratch. Remember to follow Wicket's convention (one WebPage/Panel/Border class for each HTML file).
+
+2. Or, create a project with the `gamboa-clean-archetype`. This archetype has only one HTML, no CSS or Javascripts, no Spring services except the base MongoDBService and Email utilities. It also has no SignUp/SignIn examples. It is a clean project where you can drop any prototype inside `layout/` and start coding from scratch.
+
+### MongoDBService
 
 The `MongoDBService` file has useful Scala definitions to work with MongoDB. If you know what you are doing, feel free to change that.
 
