@@ -64,6 +64,14 @@ Projects created with Gamboa Archetype already have Eclipse files configured. Th
 
      http://www.aptana.com/products/studio3/download
 
+Debugging
+-------
+It is possible to debug by simply running the Jetty plugin with Xdebug options through the MAVEN_OPTS environment variable. Then on Eclipse, launch a Remote Application debug agent.
+
+Follow these instructions documented at the JETTY Wiki
+
+     http://docs.codehaus.org/display/JETTY/Debugging+with+the+Maven+Jetty+Plugin+inside+Eclipse
+
 Frameworks and Technologies
 -------
 Here's the list of all Gamboa integrated frameworks and technologies:
