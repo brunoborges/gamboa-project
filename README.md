@@ -39,7 +39,6 @@ Here is the project structure Gamboa suggests for rapid development:
     myproject $> tree
     .
     |-- code             --> .scala files
-    |   |-- db
     |   |-- pages
     |   `-- services
     |       `-- email
@@ -52,6 +51,23 @@ Here is the project structure Gamboa suggests for rapid development:
     |       `-- libs
     |-- maven-eclipse.xml
     |-- pom.xml
+
+### Project structure dismistified
+Gamboa does not follow Maven's convention because it believes the convention is not suited for rapid web application development. Having to define a Java package and all those folders under src/ is not straightforward for developers who don't know Maven. Even for those who know, it still is not something simple. Gamboa suggests a different approach, taking advantage of Maven's build process and Scala capabilities. 
+
+All HTML files must go into the `layout/` folder. For each HTML page, there must be a Scala class under `code/pages`. This is the Wicket convention. Other Web resources (CSS, JavaScript and images) will go to the context root of the web application. This way, the prototype will be functional and during runtime, everything will work as expected, thanks to Wicket. There's no need to programmatically reference resources.
+
+Logical services are Spring-based POJOs and must go to `code/services` as this is the convention for Annotations scan defined in the `applicationContext.xml`. If you feel you must change this, modify that XML as you wish.
+
+The `code/email` package has some useful classes to sending emails. Templates must go to `config/templates` and can be HTMLs. All configuration like SMTP properties are located in the `emailContext.xml`.
+
+### Want a clean structure?
+If you want a clean project structure, without any code, just create a project and delete everything from `code/pages` and `layout`. Then drop your functional prototype to `layout` and start coding from scratch. Remember to follow Wicket's convention (one WebPage/Panel/Border class for each HTML file).
+
+The `MongoDBService` file has useful Scala definitions to work with MongoDB. If you know what you are doing, feel free to change that.
+
+### This is just a skeleton
+This is a skeleton for Web 2.0 projects that don't require transactional/relational databases. MongoDB is great and if you know how to use it, you can achieve the same requirements as if with relational databases like Oracle, MySQL or PostgreSQL.
 
 IDE Support
 -------
