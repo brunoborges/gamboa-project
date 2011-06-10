@@ -93,6 +93,8 @@ Frameworks and Technologies
 -------
 Here's the list of all Gamboa integrated frameworks and technologies:
 
+1. Server-side libraries
+
 * Scala 2.9.0-1
 * Apache Wicket 1.5.0-RC4.2
 * MongoDB driver 2.6.1
@@ -103,6 +105,12 @@ Here's the list of all Gamboa integrated frameworks and technologies:
 * Log4J 1.2.16
 * SLF4J 1.6.1
 * Jetty Plugin 8.0.0.M3
+
+2. Client-side libraries
+
+* jQuery 1.6.1
+* Modernizr 1.7
+* HTML5 Initializr (http://initializr.com/)
 
 Roadmap
 -------
