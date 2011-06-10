@@ -91,7 +91,7 @@ google.setOnLoadCallback(function() {
 	<div id="header-bottom"> 
 		<div class="container">
 			<div id="search-bar">
-				<form accept-charset="UTF-8" action="http://ideias.startupdev.com.br/" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+				<form accept-charset="UTF-8" action="Busca.html" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
 					<input id="searchinput" name="q" type="text" value="busque ideias..." />
 					<input type="image" src="images/search-icon.png" id="searchsubmit" /> 
 </form>			</div>
@@ -111,8 +111,19 @@ google.setOnLoadCallback(function() {
 			<div class="page-separator"></div>
 			<div class="post-content">
 				<div id="register-form">  
-					<form accept-charset="UTF-8" action="ideas" class="new_idea" id="new_idea" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="GTzTsCabGVs4EZb+zIu0gOoDfK25AIjVz+eFVFagfwk=" /></div>
+					<form accept-charset="UTF-8" action="Ideia.html" class="new_idea" id="new_idea" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="GTzTsCabGVs4EZb+zIu0gOoDfK25AIjVz+eFVFagfwk=" /></div>
 	<input id="hash" name="hash" type="hidden" />
+
+<div class="et-box et-warning"> 
+      <div class="et-box-content">
+        <span style="font-size: 17px;">2 erros ocorreram:</span>
+        <br style="clear: both;">
+        <ul>
+            <li>Descrição não pode ficar em branco</li>
+            <li>E-mail não é válido</li>
+        </ul>
+      </div>
+    </div>
 
 	<div class="title">  
 		<h2>Ideia</h2>
@@ -191,63 +202,46 @@ google.setOnLoadCallback(function() {
 					<div id="sidebar-bottom"> 
 						<div id="sidebar-content"> 
 							<div class="widget-button">
-							  <a href="http://ideias.startupdev.com.br/ideas/new" id="call_to_action"><span>Cadastre sua Ideia</span></a>
+							  <a href="NovaIdeia.html" id="call_to_action"><span>Cadastre sua Ideia</span></a>
 							</div>
 							<div class="widget widget_archive">
 								<h4 class="widgettitle">Tags</h4>
-								<div class="widget-content">
-										<a href="tag/Legal" class="tag3">Legal</a>
-										<a href="tag/Almo%C3%A7o" class="tag3">Almoço</a>
-										<a href="tag/Galera" class="tag3">Galera</a>
-										<a href="tag/%C3%A1udio" class="tag3">áudio</a>
-										<a href="tag/domination" class="tag3">domination</a>
-										<a href="tag/milh%C3%B5es" class="tag3">milhões</a>
-										<a href="tag/social" class="tag4">social</a>
-										<a href="tag/webdesign" class="tag3">webdesign</a>
-										<a href="tag/world" class="tag3">world</a>
-										<a href="tag/microblogging" class="tag3">microblogging</a>
-										<a href="tag/Gratis" class="tag3">Gratis</a>
-										<a href="tag/Adicionar" class="tag3">Adicionar</a>
-										<a href="tag/web" class="tag3">web</a>
-										<a href="tag/desenvolvimento" class="tag3">desenvolvimento</a>
-										<a href="tag/Pra" class="tag3">Pra</a>
-										<a href="tag/twitter" class="tag3">twitter</a>
-										<a href="tag/Muito" class="tag3">Muito</a>
-										<a href="tag/video" class="tag3">video</a>
-										<a href="tag/Esse" class="tag3">Esse</a>
-										<a href="tag/Tag" class="tag3">Tag</a>
-										<a href="tag/Componente" class="tag3">Componente</a>
-										<a href="tag/de" class="tag3">de</a>
-								</div>
+								<div class="widget-content"> 
+										<a href="Tag.html" class="tag3">Tag</a>
+										<a href="Tag.html" class="tag3">Foo</a>
+										<a href="Tag.html" class="tag3">Bar</a>
+										<a href="Tag.html" class="tag3">Fizz</a>
+										<a href="Tag.html" class="tag3">Buzz</a>
+								</div> 
 							</div>
 								<div id="tabbed" class="sidebar-block">
 									<h4 class="widgettitle">Recentes</h4>
 									<div id="recent-tabbed" class="widget-content"> 
 										<ul> 
 												<li class="clearfix"> 
-													<span class="title"><a href="ideas/38-iterar-na-ideia-do-startup-dev">Iterar na idéia do Startup Dev</a></span> 
-													<p class="post-info">Escrito por <a href="?q=Cayo+Medeiros+%28yogodoshi%29">Cayo Medeiros (yogodoshi)</a> em 09/06, 12:57 h</p> 
-													<span class="widget-comment-number"><a href="http://ideias.startupdev.com.br/ideas/38-iterar-na-ideia-do-startup-dev#disqus_thread" data-disqus-identifier="idea_id_38">0</a></span> 
+													<span class="title"><a href="Ideia.html">Iterar na idéia do Startup Dev</a></span> 
+													<p class="post-info">Escrito por <a href="Busca.html?q=Cayo+Medeiros+%28yogodoshi%29">Cayo Medeiros (yogodoshi)</a> em 09/06, 12:57 h</p> 
+													<span class="widget-comment-number"><a href="Ideia.html#disqus_thread" data-disqus-identifier="idea_id_38">0</a></span> 
 												</li>
 												<li class="clearfix"> 
 													<span class="title"><a href="ideas/37-tipo-um-twitter-mas-de-apenas-um-caracter">Tipo um Twitter, mas de ape...</a></span> 
-													<p class="post-info">Escrito por <a href="?q=J%C3%A1+Rule">Já Rule</a> em 09/06, 12:28 h</p> 
-													<span class="widget-comment-number"><a href="http://ideias.startupdev.com.br/ideas/37-tipo-um-twitter-mas-de-apenas-um-caracter#disqus_thread" data-disqus-identifier="idea_id_37">0</a></span> 
+													<p class="post-info">Escrito por <a href="Busca.html?q=J%C3%A1+Rule">Já Rule</a> em 09/06, 12:28 h</p> 
+													<span class="widget-comment-number"><a href="Ideia.html#disqus_thread" data-disqus-identifier="idea_id_37">0</a></span> 
 												</li>
 												<li class="clearfix"> 
 													<span class="title"><a href="ideas/30-framework-para-desenvolvimento-web">Framework para desenvolvime...</a></span> 
-													<p class="post-info">Escrito por <a href="?q=Marcos+Tapaj%C3%B3s">Marcos Tapajós</a> em 09/06, 11:40 h</p> 
-													<span class="widget-comment-number"><a href="http://ideias.startupdev.com.br/ideas/30-framework-para-desenvolvimento-web#disqus_thread" data-disqus-identifier="idea_id_30">0</a></span> 
+													<p class="post-info">Escrito por <a href="Busca.html?q=Marcos+Tapaj%C3%B3s">Marcos Tapajós</a> em 09/06, 11:40 h</p> 
+													<span class="widget-comment-number"><a href="Ideia.html#disqus_thread" data-disqus-identifier="idea_id_30">0</a></span> 
 												</li>
 												<li class="clearfix"> 
-													<span class="title"><a href="ideas/13-concorrente-g-da-apple">Concorrente G da Apple</a></span> 
-													<p class="post-info">Escrito por <a href="?q=Ivan">Ivan</a> em 08/06, 20:32 h</p> 
-													<span class="widget-comment-number"><a href="http://ideias.startupdev.com.br/ideas/13-concorrente-g-da-apple#disqus_thread" data-disqus-identifier="idea_id_13">0</a></span> 
+													<span class="title"><a href="Ideia.html">Concorrente G da Apple</a></span> 
+													<p class="post-info">Escrito por <a href="Busca.html?q=Ivan">Ivan</a> em 08/06, 20:32 h</p> 
+													<span class="widget-comment-number"><a href="Ideia.html#disqus_thread" data-disqus-identifier="idea_id_13">0</a></span> 
 												</li>
 												<li class="clearfix"> 
-													<span class="title"><a href="ideas/12-tirar-essa-lampada-tosca-do-site">Tirar essa lâmpada tosca do...</a></span> 
-													<p class="post-info">Escrito por <a href="?q=Rafael+B.+Tauil">Rafael B. Tauil</a> em 08/06, 20:17 h</p> 
-													<span class="widget-comment-number"><a href="http://ideias.startupdev.com.br/ideas/12-tirar-essa-lampada-tosca-do-site#disqus_thread" data-disqus-identifier="idea_id_12">0</a></span> 
+													<span class="title"><a href="Ideia.html">Tirar essa lâmpada tosca do...</a></span> 
+													<p class="post-info">Escrito por <a href="Busca.html?q=Rafael+B.+Tauil">Rafael B. Tauil</a> em 08/06, 20:17 h</p> 
+													<span class="widget-comment-number"><a href="Ideia.html#disqus_thread" data-disqus-identifier="idea_id_12">0</a></span> 
 												</li>
 										</ul>	
 									</div>

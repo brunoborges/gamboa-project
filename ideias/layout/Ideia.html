@@ -78,10 +78,10 @@ google.setOnLoadCallback(function() {
 				<a href=""><img alt="Logo" id="logo" src="images/logo.png?1307573983" /></a> 
 				<ul id="primary-menu" class="nav">
 					<li class="menu-item menu-item-type-custom menu-item-object-custom current_page_item menu-item-home ">
-						<a href=""><strong>Explore</strong><span>Vote nas Ideias</span></a>
+						<a href="Index.html"><strong>Explore</strong><span>Vote nas Ideias</span></a>
 					</li>	
 					<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home ">
-						<a href="ideas/new"><strong>Participe</strong><span>Envie sua Ideia</span></a>
+						<a href="NovaIdeia.html"><strong>Participe</strong><span>Envie sua Ideia</span></a>
 					</li> 
 				</ul>					
 			</div> <!-- end .container --> 
@@ -91,7 +91,7 @@ google.setOnLoadCallback(function() {
 	<div id="header-bottom"> 
 		<div class="container">
 			<div id="search-bar">
-				<form accept-charset="UTF-8" action="http://ideias.startupdev.com.br/" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+				<form accept-charset="UTF-8" action="Busca.html" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
 					<input id="searchinput" name="q" type="text" value="busque ideias..." />
 					<input type="image" src="images/search-icon.png" id="searchsubmit" /> 
 </form>			</div>
@@ -102,7 +102,13 @@ google.setOnLoadCallback(function() {
 		<div id="right-shadow"> 
 			<div id="top-shadow"></div> 
 			<div class="container clearfix"> 
-				<div class="et-box et-info">
+				<div class="et-box et-info"> <!-- SPAM -->
+					<div class="et-box-content"><span style="font-size: 17px;">Obrigado por nos avisar. Tomaremos as devidas providencias.</span></div>
+				</div>
+				<div class="et-box et-info"> <!-- Cadastro sucesso -->
+					<div class="et-box-content"><span style="font-size: 17px;">Idéia foi cadastrada com sucesso.</span></div>
+				</div>
+				<div class="et-box et-info"> <!-- Voto sucesso -->
 					<div class="et-box-content"><span style="font-size: 17px;">Seu voto foi computado com sucesso.</span></div>
 				</div>
 				<div id="main-area">
@@ -112,7 +118,7 @@ google.setOnLoadCallback(function() {
 <div class="entry">
 	<div class="entry-top">
 		<div class="entry-content">
-			<span class="comment-number unanswered"><a href="http://ideias.startupdev.com.br/ideas/1-projeto-da-lampada#disqus_thread" data-disqus-identifier="idea_id_1">0</a></span>
+			<span class="comment-number unanswered"><a href="Ideia.html#disqus_thread" data-disqus-identifier="idea_id_1">0</a></span>
 			<div class="author-inner" style="min-height: 70px">
 				<div class="author-image">
 				  <img alt="Rafael Esberard's avatar" height="62" src="https://secure.gravatar.com/avatar/22bae19a45b45730d225b05fd133db1d?s=62" width="62" />
@@ -132,7 +138,7 @@ google.setOnLoadCallback(function() {
 			</div> <!-- .author-inner -->
 			<div class="clear"></div>
 				<div class="postmeta">
-					<form accept-charset="UTF-8" action="ideas/1-projeto-da-lampada/rating" class="edit_idea" id="edit_idea_1" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="GTzTsCabGVs4EZb+zIu0gOoDfK25AIjVz+eFVFagfwk=" /></div>
+					<form accept-charset="UTF-8" action="Ideia.html#rating" class="edit_idea" id="edit_idea_1" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="GTzTsCabGVs4EZb+zIu0gOoDfK25AIjVz+eFVFagfwk=" /></div>
 							<input class="auto-submit-star" id="rating_1" name="rating" type="radio" value="1" />
 							<input class="auto-submit-star" id="rating_2" name="rating" type="radio" value="2" />
 							<input class="auto-submit-star" id="rating_3" name="rating" type="radio" value="3" />
@@ -152,7 +158,7 @@ google.setOnLoadCallback(function() {
 				</div>
 				<div class="postmeta">
 					<p class="postinfo">
-						Escrito por <a href="?q=Rafael+Esberard">Rafael Esberard</a> em 08/06, 19:54 h
+						Escrito por <a href="Busca.html?q=Rafael+Esberard">Rafael Esberard</a> em 08/06, 19:54 h
 					</p> 
 				</div>
 				<div class="post-content">
@@ -162,7 +168,7 @@ google.setOnLoadCallback(function() {
 
 				<div class="postmeta">
 			    <div class="report-spam">
-			      <a href="http://ideias.startupdev.com.br/ideas/1-projeto-da-lampada/spam" class="small-button smallsilver" data-method="put" rel="nofollow"><span>Reportar spam</span></a>
+			      <a href="Ideia.html#spam" class="small-button smallsilver" data-method="put" rel="nofollow"><span>Reportar spam</span></a>
 			    </div>
 					<div class="clear"></div>
 				</div>
@@ -199,63 +205,46 @@ google.setOnLoadCallback(function() {
 					<div id="sidebar-bottom"> 
 						<div id="sidebar-content"> 
 							<div class="widget-button">
-							  <a href="http://ideias.startupdev.com.br/ideas/new" id="call_to_action"><span>Cadastre sua Ideia</span></a>
+							  <a href="NovaIdeia.html" id="call_to_action"><span>Cadastre sua Ideia</span></a>
 							</div>
 							<div class="widget widget_archive">
 								<h4 class="widgettitle">Tags</h4>
-								<div class="widget-content">
-										<a href="tag/Legal" class="tag3">Legal</a>
-										<a href="tag/Almo%C3%A7o" class="tag3">Almoço</a>
-										<a href="tag/Galera" class="tag3">Galera</a>
-										<a href="tag/%C3%A1udio" class="tag3">áudio</a>
-										<a href="tag/domination" class="tag3">domination</a>
-										<a href="tag/milh%C3%B5es" class="tag3">milhões</a>
-										<a href="tag/social" class="tag4">social</a>
-										<a href="tag/webdesign" class="tag3">webdesign</a>
-										<a href="tag/world" class="tag3">world</a>
-										<a href="tag/microblogging" class="tag3">microblogging</a>
-										<a href="tag/Gratis" class="tag3">Gratis</a>
-										<a href="tag/Adicionar" class="tag3">Adicionar</a>
-										<a href="tag/web" class="tag3">web</a>
-										<a href="tag/desenvolvimento" class="tag3">desenvolvimento</a>
-										<a href="tag/Pra" class="tag3">Pra</a>
-										<a href="tag/twitter" class="tag3">twitter</a>
-										<a href="tag/Muito" class="tag3">Muito</a>
-										<a href="tag/video" class="tag3">video</a>
-										<a href="tag/Esse" class="tag3">Esse</a>
-										<a href="tag/Tag" class="tag3">Tag</a>
-										<a href="tag/Componente" class="tag3">Componente</a>
-										<a href="tag/de" class="tag3">de</a>
-								</div>
+								<div class="widget-content"> 
+										<a href="Tag.html" class="tag3">Tag</a>
+										<a href="Tag.html" class="tag3">Foo</a>
+										<a href="Tag.html" class="tag3">Bar</a>
+										<a href="Tag.html" class="tag3">Fizz</a>
+										<a href="Tag.html" class="tag3">Buzz</a>
+								</div> 
 							</div>
 								<div id="tabbed" class="sidebar-block">
 									<h4 class="widgettitle">Recentes</h4>
 									<div id="recent-tabbed" class="widget-content"> 
 										<ul> 
 												<li class="clearfix"> 
-													<span class="title"><a href="ideas/38-iterar-na-ideia-do-startup-dev">Iterar na idéia do Startup Dev</a></span> 
-													<p class="post-info">Escrito por <a href="?q=Cayo+Medeiros+%28yogodoshi%29">Cayo Medeiros (yogodoshi)</a> em 09/06, 12:57 h</p> 
-													<span class="widget-comment-number"><a href="http://ideias.startupdev.com.br/ideas/38-iterar-na-ideia-do-startup-dev#disqus_thread" data-disqus-identifier="idea_id_38">0</a></span> 
+													<span class="title"><a href="Ideia.html">Iterar na idéia do Startup Dev</a></span> 
+													<p class="post-info">Escrito por <a href="Busca.html?q=Cayo+Medeiros+%28yogodoshi%29">Cayo Medeiros (yogodoshi)</a> em 09/06, 12:57 h</p> 
+													<span class="widget-comment-number"><a href="Ideia.html#disqus_thread" data-disqus-identifier="idea_id_38">0</a></span> 
 												</li>
 												<li class="clearfix"> 
-													<span class="title"><a href="ideas/37-tipo-um-twitter-mas-de-apenas-um-caracter">Tipo um Twitter, mas de ape...</a></span> 
-													<p class="post-info">Escrito por <a href="?q=J%C3%A1+Rule">Já Rule</a> em 09/06, 12:28 h</p> 
-													<span class="widget-comment-number"><a href="http://ideias.startupdev.com.br/ideas/37-tipo-um-twitter-mas-de-apenas-um-caracter#disqus_thread" data-disqus-identifier="idea_id_37">0</a></span> 
+													<span class="title"><a href="Ideia.html">Tipo um Twitter, mas de ape...</a></span> 
+													<p class="post-info">Escrito por <a href="Busca.html?q=J%C3%A1+Rule">Já Rule</a> em 09/06, 12:28 h</p> 
+													<span class="widget-comment-number"><a href="Ideia.html#disqus_thread" data-disqus-identifier="idea_id_37">0</a></span> 
 												</li>
 												<li class="clearfix"> 
-													<span class="title"><a href="ideas/30-framework-para-desenvolvimento-web">Framework para desenvolvime...</a></span> 
-													<p class="post-info">Escrito por <a href="?q=Marcos+Tapaj%C3%B3s">Marcos Tapajós</a> em 09/06, 11:40 h</p> 
-													<span class="widget-comment-number"><a href="http://ideias.startupdev.com.br/ideas/30-framework-para-desenvolvimento-web#disqus_thread" data-disqus-identifier="idea_id_30">0</a></span> 
+													<span class="title"><a href="Ideia.html">Framework para desenvolvime...</a></span> 
+													<p class="post-info">Escrito por <a href="Busca.html?q=Marcos+Tapaj%C3%B3s">Marcos Tapajós</a> em 09/06, 11:40 h</p> 
+													<span class="widget-comment-number"><a href="Ideia.html#disqus_thread" data-disqus-identifier="idea_id_30">0</a></span> 
 												</li>
 												<li class="clearfix"> 
-													<span class="title"><a href="ideas/13-concorrente-g-da-apple">Concorrente G da Apple</a></span> 
-													<p class="post-info">Escrito por <a href="?q=Ivan">Ivan</a> em 08/06, 20:32 h</p> 
-													<span class="widget-comment-number"><a href="http://ideias.startupdev.com.br/ideas/13-concorrente-g-da-apple#disqus_thread" data-disqus-identifier="idea_id_13">0</a></span> 
+													<span class="title"><a href="Ideia.html">Concorrente G da Apple</a></span> 
+													<p class="post-info">Escrito por <a href="Busca.html?q=Ivan">Ivan</a> em 08/06, 20:32 h</p> 
+													<span class="widget-comment-number"><a href="Ideia.html#disqus_thread" data-disqus-identifier="idea_id_13">0</a></span> 
 												</li>
 												<li class="clearfix"> 
-													<span class="title"><a href="ideas/12-tirar-essa-lampada-tosca-do-site">Tirar essa lâmpada tosca do...</a></span> 
-													<p class="post-info">Escrito por <a href="?q=Rafael+B.+Tauil">Rafael B. Tauil</a> em 08/06, 20:17 h</p> 
-													<span class="widget-comment-number"><a href="http://ideias.startupdev.com.br/ideas/12-tirar-essa-lampada-tosca-do-site#disqus_thread" data-disqus-identifier="idea_id_12">0</a></span> 
+													<span class="title"><a href="Ideia.html">Tirar essa lâmpada tosca do...</a></span> 
+													<p class="post-info">Escrito por <a href="Busca.html?q=Rafael+B.+Tauil">Rafael B. Tauil</a> em 08/06, 20:17 h</p> 
+													<span class="widget-comment-number"><a href="Ideia.html#disqus_thread" data-disqus-identifier="idea_id_12">0</a></span> 
 												</li>
 										</ul>	
 									</div>
