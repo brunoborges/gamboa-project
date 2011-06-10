@@ -83,10 +83,6 @@ abstract class DefaultService(defaultCollName: String, uniqueKey: String)
   }
 
   def query(queryObj: Map[String, Object], fields: String*): List[MongoDBObject] = {
-    if (fields == null || fields.length == 0) {
-      return Nil
-    }
-
     val mQuery = if (queryObj == null) queryObj.asDBObject else MongoDBObject.empty
     val mFields = MongoDBObject.newBuilder
     fields.foreach { field => mFields += field -> 1 }
