@@ -18,7 +18,7 @@ Gamboa is based on Apache Maven and has an Archetype. Previous knowledge on Mave
 2. Install MongoDB
 3. Clone the Gamboa Project repository locally
 
-    $ git clone git@github.com:gamboa/gamboa-project.git
+    $ git clone git@github.com:brunoborges/gamboa-project.git
 3. Go to the gamboa-archetype folder and install it
 
     $ mvn install
@@ -62,7 +62,7 @@ Projects created with Gamboa Archetype already have Eclipse files configured. Th
 
 ### Aptana Studio - Update site (3.0.1)
 
-     http://www.aptana.com/products/studio3/download
+     http://download.aptana.com/studio3/plugin/install
 
 Debugging
 -------
