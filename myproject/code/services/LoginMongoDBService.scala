@@ -1,12 +1,15 @@
 package code.services
 
-import code.{ Record, User }
+import code.User
+import com.mongodb.casbah.commons.MongoDBObject
+import com.mongodb.casbah.Imports._
 import java.util.{ Collection, ArrayList }
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.GrantedAuthorityImpl
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.stereotype.Service
+import scala.reflect.BeanProperty
 
 @Service
 class LoginMongoDBService extends UserDetailsService {
@@ -14,24 +17,37 @@ class LoginMongoDBService extends UserDetailsService {
   @Autowired
   var signUp: SignUpService = _
 
-  def loadUserByUsername(username: String): User = {
-    val user = signUp.loadUser(username);
+  @Autowired
+  var users: UserService = _
+
+  def loadUserByUsername(email: String): User = {
+    users.find(email) match {
+      case Some(value) => buildUser(value)
+      case None => null
+    }
+  }
+
+  private def buildUser(user: MongoDBObject): User = {
     val authorities: Collection[_ <: GrantedAuthority] = loadAuthorities(user);
-    val accountNonLocked = true;
-    val credentialsNonExpired = true;
-    val password = user.get("password").toString();
-    val enabled = true;
-    val accountNonExpired = true;
+    val accountNonLocked = true
+    val credentialsNonExpired = true
+    val username = user.getAs[String]("email").get
+    val password = user.getAs[String]("password").get
+    val enabled = true
+    val accountNonExpired = true
 
     new User(username, password, enabled,
       accountNonExpired, credentialsNonExpired, accountNonLocked,
       authorities, user.get("_id").toString())
   }
 
-  private def loadAuthorities(user: Record): Collection[_ <: GrantedAuthority] = {
+  private def loadAuthorities(user: MongoDBObject): Collection[_ <: GrantedAuthority] = {
     val roles = new ArrayList[GrantedAuthority]()
-    roles.add(new GrantedAuthorityImpl("USER"));
-    return roles;
+    user.getAs[String]("role") match {
+      case Some(value) => roles.add(new GrantedAuthorityImpl(value))
+      case None => Nil
+    }
+    roles
   }
 
 }

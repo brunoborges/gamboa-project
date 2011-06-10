@@ -1,54 +1,41 @@
 package code.services
 
-import scala.collection.immutable.HashMap
-import com.mongodb.casbah.commons.MongoDBObject
-import email.{ EmailSenderService, EmailSettings }
+import scala.collection.mutable.HashMap
 import com.mongodb.{ DBObject, DBCollection, DB, BasicDBObjectBuilder }
+import com.mongodb.casbah.commons.MongoDBObject
+import com.mongodb.casbah.Imports._
+import email.{ EmailSenderService, EmailSettings }
 import org.springframework.beans.factory.annotation.{ Qualifier, Autowired }
 import org.springframework.stereotype.Service
+import scala.reflect.BeanProperty
+import scala.collection.JavaConversions._
 
 trait SignUpService {
-  def signUp(name: String, email: String, password: String)
-  def emailExists(email: String): Boolean
-  def loadUser(email: String): MongoDBObject
-  def listUsers(): List[MongoDBObject]
+  def signUp(newUser: Map[String, String])
 }
 
 @Service
-class SignUpServiceImpl extends AbstractService with SignUpService {
+class SignUpServiceImpl extends SignUpService {
 
   @Autowired
   var emailSender: EmailSenderService = _
 
   @Autowired
+  var userService: UserService = _
+
+  @Autowired
   @Qualifier("signUpEmailSettings")
   var emailSettings: EmailSettings = _
 
-  val dbCol = mongoConn("users")
+  def signUp(user: Map[String, String]) {
+	var defaultRole = "ADMIN"
+    if (userService.query(Map("role" -> "ADMIN")).size > 0) {
+      defaultRole = "USER"
+    }
 
-  def signUp(name: String, email: String, password: String) {
-    val dbo = MongoDBObject.newBuilder
-    dbo += "name" -> name
-    dbo += "email" -> email
-    dbo += "password" -> password
-
-    val obj = dbo.result
-    dbCol += obj
-
-    emailSender.send(emailSettings, obj.get("email").toString(), Map("user" -> obj))
+    val tmpUser = HashMap[String, String]("role" -> defaultRole) ++ user
+    userService += tmpUser.toMap
+    emailSender.send(emailSettings, user.get("email").get, Map("user" -> tmpUser))
   }
 
-  def loadUser(email: String): MongoDBObject = {
-    val dbo = BasicDBObjectBuilder.start("email", email).get()
-    val dboFound = dbCol.findOne(dbo)
-  }
-
-  def emailExists(email: String): Boolean = {
-    val dbo = BasicDBObjectBuilder.start("email", email).get();
-    dbCol.count(dbo) > 0;
-  }
-
-  def listUsers(): List[MongoDBObject] = {
-    null
-  }
 }

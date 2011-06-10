@@ -20,7 +20,6 @@ trait EmailSenderService {
 class EmailSenderServiceImpl extends EmailSenderService {
 
   @Autowired
-  @BeanProperty
   var templates: EmailTemplateEngine = _
 
   @Async
@@ -35,7 +34,7 @@ class EmailSenderServiceImpl extends EmailSenderService {
         val ref = java.lang.Long.toString(Random.nextLong(), 16).substring(0, 7)
 
         message.setSubject(settings.subject + " #" + ref);
-        message.setTo(settings.to);
+        message.setTo(if (to == null) settings.to else to);
         message.setFrom(settings.from, settings.person);
 
         val text = templates.transform(settings.template, values);

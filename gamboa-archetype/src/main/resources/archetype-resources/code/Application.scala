@@ -23,8 +23,8 @@ class Application extends AuthenticatedWebApplication {
     getComponentInstantiationListeners().add(new SpringComponentInjector(this))
     getMarkupSettings().setStripWicketTags(true)
 
-    mount(new MountedMapper("/404", classOf[PageNotFound]))
-    mount(new MountedMapper("/500", classOf[InternalError]))
+    mountPage("/404", classOf[PageNotFound])
+    mountPage("/500", classOf[InternalError])
   }
 
   def getHomePage = classOf[HomePage]

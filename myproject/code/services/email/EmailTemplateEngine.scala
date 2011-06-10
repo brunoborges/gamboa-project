@@ -15,7 +15,6 @@ trait EmailTemplateEngine {
 class EmailTemplateEngineImpl extends EmailTemplateEngine {
 
   @Autowired
-  @BeanProperty
   var velocity: VelocityEngine = _
 
   def transform(template: String, values: Map[String, Object]): String = {
