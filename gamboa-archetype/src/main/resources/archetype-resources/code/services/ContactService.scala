@@ -1,14 +1,12 @@
 package code.services
 
-import scala.collection.mutable.HashMap
-import com.mongodb.casbah.commons.MongoDBObject
 import email.{ EmailSettings, EmailSenderService }
-
 import org.springframework.beans.factory.annotation.{ Qualifier, Autowired }
 import org.springframework.stereotype.Service
+import scala.reflect.BeanProperty
 
 trait ContactService {
-  def send(contact: MongoDBObject)
+  def send(contact: Map[String, String])
 }
 
 @Service
@@ -21,8 +19,6 @@ class ContactServiceImpl extends ContactService {
   @Qualifier("contactEmailSettings")
   var emailSettings: EmailSettings = _
 
-  def send(contact: MongoDBObject) {
-    emailSender.send(emailSettings, contact.asInstanceOf[Map[String, Object]]);
-  }
+  def send(contact: Map[String, String]) = emailSender.send(emailSettings, contact);
 
 }

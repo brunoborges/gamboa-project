@@ -5,8 +5,8 @@ import org.apache.wicket.authroles.authorization.strategies.role.annotations.Aut
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink
 
-
-class MainPage extends BaseTemplate with TraitUserPage {
+@AuthorizeInstantiation(Array("USER", "ADMIN"))
+class MainPage extends BaseTemplate {
 
   add(new BookmarkablePageLink("adminLink", classOf[AdminPage]))
 
