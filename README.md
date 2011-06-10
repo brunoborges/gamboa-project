@@ -29,6 +29,7 @@ Gamboa is based on Apache Maven and has an Archetype. Previous knowledge on Mave
 5. Run it
 
     $ cd myproject
+
     $ mvn jetty:run
 
 Project structure
@@ -37,14 +38,14 @@ Here is the project structure Gamboa suggests for rapid development:
 
     myproject $> tree
     .
-    |-- code
+    |-- code             --> .scala files
     |   |-- db
     |   |-- pages
     |   `-- services
     |       `-- email
-    |-- config
+    |-- config           --> configuration files (.xml and some .properties)
     |   `-- templates
-    |-- layout
+    |-- layout           --> .html files and presentation (.css, .js, images)
     |   |-- apple-touch
     |   |-- css
     |   `-- js
