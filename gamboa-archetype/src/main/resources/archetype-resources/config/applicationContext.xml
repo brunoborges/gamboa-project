@@ -12,7 +12,7 @@
 
 	<import resource="classpath:securityContext.xml" />
 
-	<import resource="classpath:mongoContext.xml" />
+	<context:property-placeholder location="classpath:mongodb.properties" />
 	
 	<import resource="classpath:emailContext.xml" />
 
