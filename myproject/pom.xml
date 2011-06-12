@@ -193,7 +193,6 @@
 					<groupId>org.slf4j</groupId>
 					<artifactId>slf4j-api</artifactId>
 				</exclusion>
-				<!--
 				<exclusion>
 					<groupId>org.scalaj</groupId>
 					<artifactId>scalaj-collection_2.8.0</artifactId>
@@ -202,8 +201,17 @@
 					<groupId>org.scala-tools.time</groupId>
 					<artifactId>time_2.8.0</artifactId>
 				</exclusion>
-				-->
 			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.scalaj</groupId>
+			<artifactId>scalaj-collection_2.9.0-1</artifactId>
+			<version>1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.scala-tools.time</groupId>
+			<artifactId>time_2.9.0-1</artifactId>
+			<version>0.4</version>
 		</dependency>
 		<dependency>
 			<groupId>com.mongodb.casbah</groupId>
