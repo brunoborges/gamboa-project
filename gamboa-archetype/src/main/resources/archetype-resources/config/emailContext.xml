@@ -8,8 +8,6 @@
            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 
-	<context:property-placeholder location="classpath:email.properties" />
-
 	<bean id="velocityEngine"
 		class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
 		<property name="velocityProperties">
@@ -23,8 +21,8 @@
 	<bean id="noReplySender" class="org.springframework.mail.javamail.JavaMailSenderImpl"
 		lazy-init="true">
 		<!-- change these values if you don't have a Google GMail account -->
-		<property name="host" value="smtp.gmail.com" />
-		<property name="port" value="587" />
+		<property name="host" value="${mail.smtp.host}" />
+		<property name="port" value="${mail.smtp.port}" />
 
 		<!-- username/password -->
 		<property name="username" value="${mail.smtp.username}" />
