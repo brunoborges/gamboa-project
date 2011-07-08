@@ -358,7 +358,7 @@
 					<scanTargets>
 						<scanTarget>target/classes/</scanTarget>
 					</scanTargets>
-					<scanIntervalSeconds>60</scanIntervalSeconds>
+					<scanIntervalSeconds>1</scanIntervalSeconds>
 				</configuration>
 			</plugin>
 			<plugin>
