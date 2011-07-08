@@ -1,8 +1,7 @@
 package code
 
-import pages.{ PageNotFound, InternalError }
+import pages._
 import org.apache.wicket.authroles.authentication.AuthenticatedWebApplication
-import code.pages.{ HomePage, SignUp, SignIn }
 import org.apache.wicket.Component
 import org.apache.wicket.application.IComponentInstantiationListener
 import org.apache.wicket.markup.html.form.FormComponent
@@ -17,8 +16,8 @@ class Application extends AuthenticatedWebApplication {
   override def init() {
     super.init()
 
-    // disable the autoFormMarkupId if you don't want wicket:id to become CSS id
-    getComponentInstantiationListeners().add(autoFormMarkupId)
+    // enable the autoFormMarkupId if you want wicket:id to become CSS id
+    // getComponentInstantiationListeners().add(autoFormMarkupId)
 
     getComponentInstantiationListeners().add(new SpringComponentInjector(this))
     getMarkupSettings().setStripWicketTags(true)
