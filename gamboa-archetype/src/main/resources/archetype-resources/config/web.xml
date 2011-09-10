@@ -32,7 +32,7 @@
 		</init-param>
                 <init-param>
                         <param-name>ignorePaths</param-name>
-                        <param-value>/css,/js,/images,/icons,/prettyPhoto</param-value>
+                        <param-value>/apple-touch,/css,/js,/images,/icons,/prettyPhoto</param-value>
                 </init-param>
 	</filter>
 
