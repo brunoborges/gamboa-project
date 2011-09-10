@@ -21,7 +21,7 @@
 		<velocity.version>1.7</velocity.version>
 		<mail.version>1.4.1</mail.version>
 		<junit.version>4.8.2</junit.version>
-		<mongodb.version>2.6.1</mongodb.version>
+		<mongodb.version>2.6.3</mongodb.version>
 	</properties>
 
 	<repositories>
@@ -286,6 +286,12 @@
 		<testSourceDirectory>test</testSourceDirectory>
 		<resources>
 			<resource>
+				<directory>src</directory>
+				<includes>
+					<include>**/*.properties</include>
+				</includes>
+			</resource>
+			<resource>
 				<directory>config</directory>
 				<excludes>
 					<exclude>web.xml</exclude>
@@ -312,6 +318,7 @@
 			<plugin>
 				<groupId>org.scala-tools</groupId>
 				<artifactId>maven-scala-plugin</artifactId>
+				<version>2.9.1</version>
 				<executions>
 					<execution>
 						<goals>
@@ -332,6 +339,7 @@
 				<inherited>true</inherited>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
 				<configuration>
 					<source>1.6</source>
 					<target>1.6</target>
@@ -342,6 +350,7 @@
 			<plugin>
   				<groupId>org.mortbay.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
+				<version>${jetty.version}</version>
 				<configuration>
 					<webAppSourceDirectory>layout</webAppSourceDirectory>
 					<webAppConfig>
@@ -351,12 +360,13 @@
 					<scanTargets>
 						<scanTarget>target/classes/</scanTarget>
 					</scanTargets>
-					<scanIntervalSeconds>1</scanIntervalSeconds>
+					<scanIntervalSeconds>5</scanIntervalSeconds>
 				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.8</version>
 				<configuration>
 					<downloadSources>true</downloadSources>
 				</configuration>
@@ -364,6 +374,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
+				<version>2.1.1</version>
 				<configuration>
 					<webXml>config/web.xml</webXml>
 					<webResources>
