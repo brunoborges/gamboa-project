@@ -30,6 +30,10 @@
 			<param-name>filterMappingUrlPattern</param-name>
 			<param-value>/*</param-value>
 		</init-param>
+                <init-param>
+                        <param-name>ignorePaths</param-name>
+                        <param-value>/css,/js,/images,/icons,/prettyPhoto</param-value>
+                </init-param>
 	</filter>
 
 	<filter-mapping>
@@ -44,4 +48,7 @@
 		<location>/404</location>
 	</error-page>
 
+	<session-config>
+		<session-timeout>60</session-timeout>
+	</session-config>
 </web-app>
