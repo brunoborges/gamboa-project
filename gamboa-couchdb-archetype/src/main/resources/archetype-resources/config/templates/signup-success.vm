@@ -1,0 +1,9 @@
+<html>
+  <head>
+  </head>
+  <body>
+
+    <h3>Hi ${name}! Thank you for signing up at ${artifactId}!</h3>
+
+  </body>
+</html>
