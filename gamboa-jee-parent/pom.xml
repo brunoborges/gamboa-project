@@ -1,0 +1,108 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.gamboa-project</groupId>
+  <artifactId>gamboa-jee-parent</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>Gamboa JEE Parent</name>
+  <url>http://www.gamboa-project.org</url>
+
+  <parent>
+    <groupId>org.gamboa-project</groupId>
+    <artifactId>gamboa-parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <relativePath>../gamboa-parent/pom.xml</relativePath>
+  </parent>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <seam-conversation-weld.version>3.0.0.Final</seam-conversation-weld.version>
+    <glassfish-embedded.version>3.1.2</glassfish-embedded.version>
+    <javaee.version>6.0</javaee.version>
+    <wicket-cdi.version>1.3-SNAPSHOT</wicket-cdi.version>
+    <mysql.version>5.1.20</mysql.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <!-- WICKET+CDI -->
+      <dependency>
+        <groupId>org.jboss.seam.conversation</groupId>
+        <artifactId>seam-conversation-weld</artifactId>
+        <version>${seam-conversation-weld.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>net.ftlines.wicket-cdi</groupId>
+        <artifactId>wicket-cdi</artifactId>
+        <version>${wicket-cdi.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>javax</groupId>
+        <artifactId>javaee-api</artifactId>
+        <version>${javaee.version}</version>
+        <scope>provided</scope>
+      </dependency>
+
+      <!-- MySQL -->
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>${mysql.version}</version>
+        <scope>test</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <!-- GlassFish Plugin -->
+        <plugin>
+          <groupId>org.glassfish.embedded</groupId>
+          <artifactId>maven-embedded-glassfish-plugin</artifactId>
+          <version>${glassfish-embedded.version}</version>
+          <executions>
+            <execution>
+              <phase>install</phase>
+              <goals>
+                <goal>run</goal>
+              </goals>
+            </execution>
+            <execution>
+              <id>glassfish-deploy</id>
+              <phase>package</phase>
+              <goals>
+                 <goal>admin</goal>
+              </goals>
+              <configuration>
+                <commands>
+                  <param>deploy ${project.build.directory}/${build.finalName}.war</param>
+                </commands>
+              </configuration>
+            </execution>
+          </executions>
+          <configuration>
+            <goalPrefix>embedded-glassfish</goalPrefix>
+            <configFile>config/domain.xml</configFile>
+            <contextRoot>/</contextRoot>
+            <app>${project.build.directory}/${build.finalName}.war</app>
+            <port>8080</port>
+            <autoDelete>false</autoDelete>
+          </configuration>
+          <dependencies>
+            <dependency>
+              <groupId>org.osgi</groupId>
+              <artifactId>org.osgi.core</artifactId>
+              <version>4.3.0</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>

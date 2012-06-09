@@ -1,0 +1,190 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>${groupId}</groupId>
+  <artifactId>${artifactId}</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <name>${artifactId}</name>
+
+  <!-- Set Gamboa Parent to get default plugin configurations -->
+  <parent>
+    <groupId>org.gamboa-project</groupId>
+    <artifactId>gamboa-jee-parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <gamboa.version>1.0-SNAPSHOT</gamboa.version>
+    <wicket.cdi.version>1.3-SNAPSHOT</wicket.cdi.version>
+    <mysql.version>5.1.20</mysql.version>
+  </properties>
+
+  <repositories>
+    <repository>
+      <id>java.net</id>
+      <name>GlassFish Maven Repository</name>
+      <url>https://maven.java.net/content/repositories/releases/</url>
+    </repository>
+    <repository>
+      <id>jboss</id>
+      <url>https://repository.jboss.org/nexus/content/groups/public/</url>
+    </repository>
+  </repositories>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>java.net</id>
+      <name>GlassFish Maven Repository</name>
+      <url>https://maven.java.net/content/repositories/releases/</url>
+    </pluginRepository>
+  </pluginRepositories>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.gamboa-project</groupId>
+        <artifactId>gamboa-parent</artifactId>
+        <version>${gamboa.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.gamboa-project</groupId>
+        <artifactId>gamboa-jee-parent</artifactId>
+        <version>${gamboa.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+    <!-- GAMBOA COMMON DEPENDENCIES -->
+    <!-- Gamboa DSL for Wicket -->
+    <dependency>
+      <groupId>org.gamboa-project</groupId>
+      <artifactId>gamboa-dsl</artifactId>
+    </dependency>
+
+    <!-- Logback -->
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+    </dependency>
+
+    <!-- JUnit -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- Velocity -->
+    <dependency>
+      <groupId>org.apache.velocity</groupId>
+      <artifactId>velocity</artifactId>
+    </dependency>
+
+    <!-- Wicket -->
+    <dependency>
+      <groupId>org.apache.wicket</groupId>
+      <artifactId>wicket-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.wicket</groupId>
+      <artifactId>wicket-extensions</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.wicket</groupId>
+      <artifactId>wicket-datetime</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.wicket</groupId>
+      <artifactId>wicket-auth-roles</artifactId>
+    </dependency>
+
+    <!-- Scala -->
+    <dependency>
+      <groupId>org.scala-lang</groupId>
+      <artifactId>scala-library</artifactId>
+    </dependency>
+
+    <!-- JAVA EE DEPENDENCIES -->
+    <!-- WICKET+CDI -->
+    <dependency>
+      <groupId>org.jboss.seam.conversation</groupId>
+      <artifactId>seam-conversation-weld</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>net.ftlines.wicket-cdi</groupId>
+      <artifactId>wicket-cdi</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- MySQL -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <!-- Build process -->
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <testSourceDirectory>test</testSourceDirectory>
+    <resources>
+      <resource>
+        <directory>config</directory>
+        <filtering>true</filtering>
+        <excludes>
+          <exclude>web.xml</exclude>
+          <exclude>beans.xml</exclude>
+        </excludes>
+      </resource>
+      <resource>
+        <targetPath>code/webapp/pages</targetPath>
+        <directory>layout</directory>
+        <filtering>true</filtering>
+        <includes>
+          <include>**/*.html</include>
+          <include>**/*.properties</include>
+        </includes>
+      </resource>
+      <resource>
+        <directory>src</directory>
+        <filtering>true</filtering>
+        <includes>
+          <include>**/*.properties</include>
+        </includes>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.glassfish.embedded</groupId>
+        <artifactId>maven-embedded-glassfish-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>net.alchim31.maven</groupId>
+        <artifactId>scala-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-eclipse-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+</project>

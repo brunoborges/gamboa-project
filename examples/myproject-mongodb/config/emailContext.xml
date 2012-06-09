@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-autowire="autodetect"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<bean id="velocityEngine"
+		class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+		<property name="velocityProperties">
+			<value>
+				resource.loader=class
+				class.resource.loader.class=org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+			</value>
+		</property>
+	</bean>
+
+	<bean id="noReplySender" class="org.springframework.mail.javamail.JavaMailSenderImpl"
+		lazy-init="true">
+		<!-- change these values if you don't have a Google GMail account -->
+		<property name="host" value="${mail.smtp.host}" />
+		<property name="port" value="${mail.smtp.port}" />
+
+		<!-- username/password -->
+		<property name="username" value="${mail.smtp.username}" />
+		<property name="password" value="${mail.smtp.password}" />
+
+		<!-- You don't need to change this, unless your SMTP is not SSL -->
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">${mail.smtp.auth}</prop>
+				<prop key="mail.smtp.starttls.enable">${mail.smtp.starttls.enable}</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="signUpEmailSettings" class="code.services.email.EmailSettings">
+		<property name="sender" ref="noReplySender" />
+		<property name="from" value="${mail.from}" />
+		<property name="person" value="myproject-mongodb" />
+		<property name="subject" value="Sign up completed" />
+		<property name="template" value="templates/signup-success.vm" />
+	</bean>
+
+	<bean id="contactEmailSettings" class="code.services.email.EmailSettings">
+		<property name="sender" ref="noReplySender" />
+		<property name="from" value="${mail.from.noreply}" />
+		<property name="to" value="${mail.to.contact}" />
+		<property name="person" value="myproject-mongodb" />
+		<property name="subject" value="Web site contact" />
+		<property name="template" value="templates/contact.vm" />
+	</bean>
+
+</beans>
+

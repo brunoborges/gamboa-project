@@ -1,0 +1,174 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.gamboa-project</groupId>
+  <artifactId>gamboa-parent</artifactId>
+  <packaging>pom</packaging>
+
+  <name>Gamboa Parent</name>
+  <url>http://www.gamboa-project.org</url>
+
+  <parent>
+    <groupId>org.gamboa-project</groupId>
+    <artifactId>gamboa</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <scala.maven.plugin.version>3.0.2</scala.maven.plugin.version>
+    <wicket.version>1.5.7</wicket.version>
+    <slf4j.version>1.6.5</slf4j.version>
+    <logback.version>1.0.6</logback.version>
+    <scala.version>2.9.2</scala.version>
+    <velocity.version>1.7</velocity.version>
+    <junit.version>4.10</junit.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <!-- Gamboa DSL for Wicket -->
+      <dependency>
+        <groupId>org.gamboa-project</groupId>
+        <artifactId>gamboa-dsl</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+      <!-- Logback -->
+      <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+        <version>${logback.version}</version>
+      </dependency>
+
+      <!-- JUnit -->
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>${junit.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+      <!-- Velocity -->
+      <dependency>
+        <groupId>org.apache.velocity</groupId>
+        <artifactId>velocity</artifactId>
+        <version>${velocity.version}</version>
+      </dependency>
+
+      <!-- Wicket -->
+      <dependency>
+        <groupId>org.apache.wicket</groupId>
+        <artifactId>wicket-core</artifactId>
+        <version>${wicket.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.wicket</groupId>
+        <artifactId>wicket-extensions</artifactId>
+        <version>${wicket.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.wicket</groupId>
+        <artifactId>wicket-datetime</artifactId>
+        <version>${wicket.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.wicket</groupId>
+        <artifactId>wicket-auth-roles</artifactId>
+        <version>${wicket.version}</version>
+      </dependency>
+
+      <!-- Scala -->
+      <dependency>
+        <groupId>org.scala-lang</groupId>
+        <artifactId>scala-library</artifactId>
+        <version>${scala.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>2.2</version>
+          <configuration>
+            <failOnMissingWebXml>false</failOnMissingWebXml>
+            <webResources>
+              <resource>
+                <directory>layout</directory>
+                <excludes>
+                  <exclude>**/*.html</exclude>
+                </excludes>
+              </resource>
+              <resource>
+                <directory>config</directory>
+                <targetPath>WEB-INF</targetPath>
+                <filtering>true</filtering>
+              </resource>
+              <resource>
+                <directory>src</directory>
+                <targetPath>WEB-INF/classes</targetPath>
+                <filtering>true</filtering>
+                <includes>
+                  <include>**/*.properties</include>
+                </includes>
+              </resource>
+            </webResources>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>net.alchim31.maven</groupId>
+          <artifactId>scala-maven-plugin</artifactId>
+          <version>${scala.maven.plugin.version}</version>
+          <executions>
+            <execution>
+              <goals>
+                <goal>add-source</goal>
+                <goal>compile</goal>
+                <goal>testCompile</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <jvmArgs>
+              <jvmArg>-Xms128m</jvmArg>
+              <jvmArg>-Xmx256m</jvmArg>
+            </jvmArgs>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-eclipse-plugin</artifactId>
+          <version>2.9</version>
+          <configuration>
+            <downloadSources>true</downloadSources>
+            <projectnatures>
+              <projectnature>org.scala-ide.sdt.core.scalanature</projectnature>
+              <projectnature>org.eclipse.jdt.core.javanature</projectnature>
+            </projectnatures>
+            <buildcommands>
+              <buildCommand>
+                <name>org.scala-ide.sdt.core.scalabuilder</name>
+                <arguments></arguments>
+              </buildCommand>
+              <buildCommand>
+                <name>org.eclipse.ui.externaltools.ExternalToolBuilder</name>
+                <arguments>
+                  <LaunchConfigHandle>&lt;project&gt;/.externalToolBuilders/Maven_Ant_Builder.launch</LaunchConfigHandle>
+                </arguments>
+              </buildCommand>
+            </buildcommands>
+            <classpathContainers>
+              <classpathContainer>org.scala-ide.sdt.launching.SCALA_CONTAINER</classpathContainer>
+            </classpathContainers>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>

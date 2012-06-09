@@ -1,0 +1,23 @@
+<wicket:extend>
+	<div id="header-container">
+		<header class="wrapper">
+			<a href="#" wicket:id="homeLink"><h1 id="title">Your title</h1></a>
+			<nav>
+				<ul wicket:id="layoutNavbar">
+					<li><a href="#">Some</a></li>
+					<li><a href="#">navigation</a></li>
+					<li><a href="#">links</a></li>
+					<li><a href="#" wicket:id="logout">Log out</a></li>
+				</ul>
+			</nav>
+		</header>
+	</div>
+	<div id="main" class="wrapper">
+		<wicket:child />
+	</div>
+	<div id="footer-container">
+		<footer class="wrapper">
+			<h3>A nice footer</h3>
+		</footer>
+	</div>
+</wicket:extend>
