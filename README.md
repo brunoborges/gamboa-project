@@ -4,6 +4,7 @@
     | |_| | (_| | | | | | | |_) | (_) | (_| |    |  __/| | | (_) | |  __/ (__| |_ 
      \____|\__,_|_| |_| |_|_.__/ \___/ \__,_|    |_|   |_|  \___// |\___|\___|\__|
                                                                |__/               
+<<<<<<< HEAD
 ** for Java EE **
 
 What is it?
@@ -117,3 +118,8 @@ The Gamboa project aims to be not only a Maven archetype, but also a solid base 
 Contributing
 -------
 As any other GitHub project: fork it and contribute. If you want to share your changes, request a pull.
+=======
+PROJECT MOVED
+=============
+This project has moved to http://gamboa-project.org (still at github).
+>>>>>>> e83a36986f931e9467bbb33c1d0c9a2d182283f4

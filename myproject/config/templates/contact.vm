@@ -1,0 +1,20 @@
+<html>
+<head>
+	<title>Contact</title>
+</head>
+<body>
+	<h2>Someone said something</h2>
+	
+	<h3>Name</h3>
+	<p>${nome}</p>
+	
+	<h3>Email</h3>
+	<p>${email}</p>
+	
+	<h3>Subject</h3>
+	<p>${assunto}</p>
+	
+	<h3>Message</h3>
+	<p>${mensagem}</p>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<archetype-descriptor xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd" 
+  name="gamboa-project">
+  <requiredProperties>
+    <requiredProperty key="groupId" />
+    <requiredProperty key="artifactId" />
+  </requiredProperties>
+  <fileSets>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src</directory>
+      <includes>
+        <include>**/*.scala</include>
+        <include>**/*.properties</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>layout</directory>
+      <includes>
+        <include>**/*.html</include>
+        <include>**/*.properties</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="false">
+      <directory>layout</directory>
+      <includes>
+        <include>**/*.txt</include>
+        <include>**/*.ico</include>
+        <include>**/*.xml</include>
+        <include>**/*.jpg</include>
+        <include>**/*.gif</include>
+        <include>**/*.png</include>
+        <include>**/*.js</include>
+        <include>**/*.css</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>config</directory>
+      <includes>
+        <include>**/*.properties</include>
+        <include>**/*.vm</include>
+        <include>**/*.xml</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory></directory>
+      <includes>
+        <include>.project</include>
+        <include>.classpath</include>
+        <include>.scala_dependencies</include>
+        <include>maven-eclipse.xml</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>.settings</directory>
+      <includes>
+        <include>**/*</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>.externalToolBuilders</directory>
+      <includes>
+        <include>Maven_Ant_Builder.launch</include>
+      </includes>
+    </fileSet>
+  </fileSets>
+</archetype-descriptor>
+

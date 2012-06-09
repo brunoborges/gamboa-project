@@ -1,0 +1,8 @@
+<project default="copy-resources">
+  <target name="init"/>
+  <target name="copy-resources" depends="init">
+    <copy todir="target/classes/code/webapp/pages" filtering="true">
+      <fileset dir="layout" includes="**/*.html|**/*.properties" excludes="**/*.java"/>
+    </copy>
+  </target>
+</project>

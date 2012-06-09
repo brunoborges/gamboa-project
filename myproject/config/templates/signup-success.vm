@@ -1,0 +1,14 @@
+<html>
+  <head>
+  </head>
+  <body>
+  
+    <h3>Oi ${cadastro.nome}! Que bom que optou por se cadastrar no <a href="http://www.mecase.com.br">Me Case!</a></h3>
+
+    <div>
+       Seu e-mail de cadastro é: <b>${cadastro.email}</a>
+       Caso tenha esquecido sua senha, <a href="http://www.mecase.com.br/app/NovaSenha">solicite uma nova</a>.
+    </div>
+
+  </body>
+</html>

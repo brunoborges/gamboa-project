@@ -1,0 +1,13 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <h3>Hi ${name}! Welcome to <a href="http://www.example.com">${artifactId}</a></h3>
+
+    <div>
+       You signed up with the following email address: <b>${email}</b><br/>
+       Your password is: <i>${password}</i>
+    </div>
+
+  </body>
+</html>
