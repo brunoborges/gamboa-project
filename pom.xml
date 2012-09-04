@@ -22,4 +22,8 @@
     <module>gamboa-spring-parent</module>
     <module>gamboa-mongodb-archetype</module>
   </modules>
+
+  <build>
+    <defaultGoal>install</defaultGoal>
+  </build>
 </project>
