@@ -20,6 +20,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <scala.maven.plugin.version>3.1.0</scala.maven.plugin.version>
     <wicket.version>6.0.0</wicket.version>
+    <wicketstuff.version>6.0.0</wicketstuff.version>
     <slf4j.version>1.7.1</slf4j.version>
     <logback.version>1.0.7</logback.version>
     <scala.version>2.9.2</scala.version>
@@ -78,6 +79,13 @@
         <groupId>org.apache.wicket</groupId>
         <artifactId>wicket-auth-roles</artifactId>
         <version>${wicket.version}</version>
+      </dependency>
+
+      <!-- WicketStuff Scala DSL -->
+      <dependency>
+        <groupId>org.wicketstuff</groupId>
+        <artifactId>wicketstuff-scala</artifactId>
+        <version>${wicketstuff.version}</version>
       </dependency>
 
       <!-- Scala -->
