@@ -35,6 +35,12 @@
       </dependency>
 
       <dependency>
+        <groupId>org.jboss.seam.conversation</groupId>
+        <artifactId>seam-conversation-weld</artifactId>
+        <version>${seam-conversation-weld.version}</version>
+      </dependency>
+
+      <dependency>
         <groupId>javax</groupId>
         <artifactId>javaee-api</artifactId>
         <version>${javaee.version}</version>
