@@ -1,6 +1,6 @@
 package code.webapp.pages
 
-import org.gamboaproject.wicket.DSLWicket
+import org.wicketstuff.scala.DSLWicket
 import org.apache.wicket.markup.html.WebPage
 
 import code.services.Service
