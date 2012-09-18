@@ -14,27 +14,20 @@
     <groupId>org.gamboa-project</groupId>
     <artifactId>gamboa-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <relativePath>../gamboa-parent/pom.xml</relativePath>
   </parent>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <seam-conversation-weld.version>3.0.0.Final</seam-conversation-weld.version>
-    <glassfish-embedded.version>3.1.2</glassfish-embedded.version>
+    <glassfish-embedded.version>3.1.2.2</glassfish-embedded.version>
     <javaee.version>6.0</javaee.version>
-    <wicket-cdi.version>1.3-SNAPSHOT</wicket-cdi.version>
-    <mysql.version>5.1.20</mysql.version>
+    <wicket-cdi.version>6.0</wicket-cdi.version>
+    <mysql.version>5.1.21</mysql.version>
   </properties>
 
   <dependencyManagement>
     <dependencies>
       <!-- WICKET+CDI -->
-      <dependency>
-        <groupId>org.jboss.seam.conversation</groupId>
-        <artifactId>seam-conversation-weld</artifactId>
-        <version>${seam-conversation-weld.version}</version>
-      </dependency>
-
       <dependency>
         <groupId>net.ftlines.wicket-cdi</groupId>
         <artifactId>wicket-cdi</artifactId>
@@ -98,7 +91,7 @@
             <dependency>
               <groupId>org.osgi</groupId>
               <artifactId>org.osgi.core</artifactId>
-              <version>4.3.0</version>
+              <version>5.0.0</version>
             </dependency>
           </dependencies>
         </plugin>
