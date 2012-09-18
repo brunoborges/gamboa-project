@@ -21,13 +21,6 @@
   </properties>
 
   <dependencies>
-    <!-- GAMBOA COMMON DEPENDENCIES -->
-    <!-- Gamboa DSL for Wicket -->
-    <dependency>
-      <groupId>org.gamboa-project</groupId>
-      <artifactId>gamboa-dsl</artifactId>
-    </dependency>
-
     <!-- Logback -->
     <dependency>
       <groupId>ch.qos.logback</groupId>
@@ -65,13 +58,19 @@
       <artifactId>wicket-auth-roles</artifactId>
     </dependency>
 
+    <!-- WicketStuff Scala DSL -->
+    <dependency>
+      <groupId>org.wicketstuff</groupId>
+      <artifactId>wicketstuff-scala</artifactId>
+    </dependency>
+
     <!-- Scala -->
     <dependency>
       <groupId>org.scala-lang</groupId>
       <artifactId>scala-library</artifactId>
     </dependency>
 
-    <!-- Gamboa SPRING Dependencies -->
+    <!-- Wicket Spring -->
     <dependency>
       <groupId>org.apache.wicket</groupId>
       <artifactId>wicket-spring</artifactId>
