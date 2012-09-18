@@ -80,7 +80,7 @@
               </goals>
               <configuration>
                 <commands>
-                  <param>deploy ${project.build.directory}/${build.finalName}.war</param>
+                  <param>deploy ${project.build.directory}/${project.build.finalName}.war</param>
                 </commands>
               </configuration>
             </execution>
@@ -89,7 +89,7 @@
             <goalPrefix>embedded-glassfish</goalPrefix>
             <configFile>config/domain.xml</configFile>
             <contextRoot>/</contextRoot>
-            <app>${project.build.directory}/${build.finalName}.war</app>
+            <app>${project.build.directory}/${project.build.finalName}.war</app>
             <port>8080</port>
             <autoDelete>false</autoDelete>
           </configuration>
