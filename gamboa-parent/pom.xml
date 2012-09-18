@@ -83,7 +83,7 @@
 
       <!-- WicketStuff Scala DSL -->
       <dependency>
-        <groupId>org.wicketstuff</groupId>
+        <groupId>org.wicketstuff.scala</groupId>
         <artifactId>wicketstuff-scala</artifactId>
         <version>${wicketstuff.version}</version>
       </dependency>
