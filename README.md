@@ -4,38 +4,32 @@
     | |_| | (_| | | | | | | |_) | (_) | (_| |    |  __/| | | (_) | |  __/ (__| |_ 
      \____|\__,_|_| |_| |_|_.__/ \___/ \__,_|    |_|   |_|  \___// |\___|\___|\__|
                                                                |__/               
-<<<<<<< HEAD
-** for Java EE **
-
 What is it?
 =======
-Is a project structure for rapid web application development based on Scala, Apache Wicket, Java EE through GlassFish and relational database. It also comes with Velocity for email templates processing.
+It is a project structure for rapid web application development based on Scala, Apache Wicket, and your flavor of base framework: Java EE with JPA or Spring with MongoDB. It also comes with Velocity for email templates processing.
 
-It has a clean directory structure that fits the common scenario where designers and developers work together to build a web application, but want clear separation of design/layout and programming code.
+It has a clean, tuned directory structure that fits the common scenario where designers and developers work together to build a web application, but want clear separation of design/layout and programming code.
 
 How to create a new project?
 -------
-Gamboa is based on Apache Maven and has an Archetype. Previous knowledge on Maven is required. 
+Gamboa is based on Apache Maven and has archetypes. Previous knowledge on Maven is required.
 To start your project, follow these steps:
 
-1. Install Apache Maven 3.0
-2. Clone these 3 Gamboa projects locally using git
+1. Install Apache Maven 3.0 (go to http://maven.apache.org)
+2. Clone the Gamboa project locally using git
 
-    $ git clone git@github.com:gamboa/gamboa-parent.git
-    $ git clone git@github.com:gamboa/gamboa-dsl.git
-    $ git clone git@github.com:gamboa/wicket-cdi.git
-    $ git clone git@github.com:gamboa/jee6.git
-3. Go to each folder (gamboa-parent, gamboa-dsl, wicket-cdi and jee6) and install the Maven artifacts
+    $ git clone git@github.com:brunoborges/gamboa-project.git
+3. Go to the 'gamboa-project' folder and install the Maven artifacts
 
     $ mvn install
-4. Create your project
+4. Go to your workspace, choose your archetype (gamboa-jee-archetype or gamboa-mongodb-archetype) and create your project
 
+    $ cd ~/workspace
     $ mvn archetype:generate -DarchetypeGroupId=org.gamboa-project -DarchetypeArtifactId=gamboa-jee6-archetype -DarchetypeVersion=1.0-SNAPSHOT -DgroupId=com.mycompany -DartifactId=myproject -DinteractiveMode=false
 
 5. Run it (it will download and start GlassFish Embedded)
 
     $ cd myproject
-    
     $ mvn install
 
 Project structure
@@ -44,19 +38,23 @@ Here is the project structure Gamboa suggests for rapid development:
 
     myproject $> tree
     .
-    |-- src              --> .scala files
+    |-- src                  --> .scala files
     |   |-- code
-    |       |-- pages
-    |           `-- services
-    |           `-- email
-    |-- config           --> configuration files (.xml and some .properties)
-    |   `-- templates
-    |-- layout           --> .html files and presentation (.css, .js, images)
-    |   |-- apple-touch
-    |   |-- css
-    |   `-- js
-    |       `-- libs
-    |-- maven-eclipse.xml
+    |       |-- data         --> your JPA / POJO entities for JEE or MongoDB
+    |       |-- services     --> your EJB3 or Spring services
+    |       |  `-- email     --> your email template processing classes
+    |       `-- webapp       --> your base classes for the Web application
+    |           `-- pages    --> your Wicket pages using the Scala DSL
+    |
+    |-- config               --> configuration files (.xml and some .properties)
+    |   `-- templates        --> Velocity templates for email delivery
+    |
+    |-- layout               --> .html files and presentation (.css, .js, images)
+    |   |-- css              
+    |   `-- js               --> your custom JS scripts
+    |       `-- libs         --> js libs like jQuery, modernizr and respond
+    |
+    |-- maven-eclipse.xml    
     |-- pom.xml
 
 ### Project structure dismistified
@@ -64,17 +62,12 @@ Gamboa does not follow Maven's convention because it believes the convention is 
 
 All HTML files must go into the `layout/` folder. For each HTML page, there must be a Scala class under `code/pages`. This is the Wicket convention. Other Web resources (CSS, JavaScript and images) will go to the context root of the web application. This way, the prototype will be functional and during runtime, everything will work as expected, thanks to Wicket. There's no need to programmatically reference resources.
 
-Logical services are Spring-based POJOs and must go to `code/services` as this is the convention for Annotations scan defined in the `applicationContext.xml`. If you feel you must change this, modify that XML as you wish.
+Logical services are EJB3 or Spring-based POJOs and should go to `code/services` as this is the convention for Annotations scan defined in the `applicationContext.xml` if you are using the Spring-based archetype. If you want to change this, modify that XML as you wish.
 
-The `code/services/email` package has some useful classes to sending emails. Templates must go to `config/templates` and can be HTMLs. All configuration like SMTP properties are located in the `emailContext.xml`.
+The `code/services/email` package has some useful classes for sending emails. Templates should go to `config/templates` and can be Velocity templates in HTML. All configuration like SMTP properties are located in the `emailContext.xml` for Spring-based. The JEE archetype requires a JNDI name for the MailSession resource.
 
 ### Want a clean structure?
-If you want a clean project structure, without any code, you have two options:
-
-1. Just create a project based on `gamboa-archetype` and delete everything from `code/pages` and `layout`. Then drop your functional prototype to `layout` and start coding from scratch. Remember to follow Wicket's convention (one WebPage/Panel/Border class for each HTML file).
-
-### This is just a skeleton
-This is a skeleton for Web 2.0 projects that don't require transactional/relational databases. MongoDB is great and if you know how to use it, you can achieve the same requirements as if with relational databases like Oracle, MySQL or PostgreSQL.
+If you want a clean project structure, without any code, just create a project based on `gamboa-jee-archetype` and delete everything from `code/webapp/pages` and `layout`. Then drop your functional prototype to `layout` and start coding from scratch. Remember to follow Wicket's convention (one WebPage/Panel/Border class for each HTML file).
 
 IDE Support
 -------
@@ -83,10 +76,6 @@ Projects created with Gamboa Archetype already have Eclipse files configured. Th
 ### Scala IDE - Update site (for Scala 2.9.z)
 
      http://download.scala-ide.org/releases-29/stable/site
-
-### Aptana Studio - Update site (3.1.2)
-
-     http://download.aptana.com/studio3/plugin/install
 
 Debugging
 -------
@@ -99,11 +88,11 @@ Here's the list of all Gamboa integrated frameworks and technologies:
 1. Server-side libraries
 
 * Scala 2.9.2
-* Apache Wicket 1.5.6
+* Apache Wicket 6.0
 * Velocity 1.7
-* JUnit 4.8.1
-* Log4J 1.2.16
-* SLF4J 1.6.1
+* JUnit 4.10
+* SLF4J 1.7.1
+* Logback
 
 2. Client-side libraries
 
@@ -113,13 +102,8 @@ Here's the list of all Gamboa integrated frameworks and technologies:
 
 Roadmap
 -------
-The Gamboa project aims to be not only a Maven archetype, but also a solid base for developers who want to quickly build web applications that already
+The Gamboa project aims to be not only a Maven archetype, but also a solid quickstart for Java and Scala developers who want to quickly build web applications that already have a functional prototype, following the top-down design strategy.
 
 Contributing
 -------
 As any other GitHub project: fork it and contribute. If you want to share your changes, request a pull.
-=======
-PROJECT MOVED
-=============
-This project has moved to http://gamboa-project.org (still at github).
->>>>>>> e83a36986f931e9467bbb33c1d0c9a2d182283f4
