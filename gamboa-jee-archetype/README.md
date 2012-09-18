@@ -32,6 +32,7 @@ To start your project, follow these steps:
     $ cd myproject
     
     $ mvn install
+6. Open your browser and go to http://localhost:8080, create an account and proceed to login
 
 Project structure
 -------
