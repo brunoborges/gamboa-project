@@ -16,7 +16,6 @@
 
   <modules>
     <module>gamboa-parent</module>
-    <module>gamboa-dsl</module>
     <module>gamboa-jee-parent</module>
     <module>gamboa-jee-archetype</module>
     <module>gamboa-spring-parent</module>
