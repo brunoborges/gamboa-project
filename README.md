@@ -25,11 +25,13 @@ To start your project, follow these steps:
 4. Go to your workspace, choose your archetype (gamboa-jee-archetype or gamboa-mongodb-archetype) and create your project
 
     $ cd ~/workspace
-    $ mvn archetype:generate -DarchetypeGroupId=org.gamboa-project -DarchetypeArtifactId=gamboa-jee6-archetype -DarchetypeVersion=1.0-SNAPSHOT -DgroupId=com.mycompany -DartifactId=myproject -DinteractiveMode=false
+
+    $ mvn archetype:generate -DarchetypeGroupId=org.gamboa-project -DarchetypeArtifactId=gamboa-jee-archetype -DarchetypeVersion=1.0-SNAPSHOT -DgroupId=com.mycompany -DartifactId=myproject -DinteractiveMode=false
 
 5. Run it (it will download and start GlassFish Embedded)
 
     $ cd myproject
+
     $ mvn install
 
 Project structure
