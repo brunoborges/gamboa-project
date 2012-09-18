@@ -81,6 +81,13 @@
         <version>${wicket.version}</version>
       </dependency>
 
+      <!-- WicketStuff Annotation Mount -->
+      <dependency>
+        <groupId>org.wicketstuff</groupId>
+        <artifactId>wicketstuff-annotation</artifactId>
+        <version>${wicketstuff.version}</version>
+      </dependency>
+
       <!-- WicketStuff Scala DSL -->
       <dependency>
         <groupId>org.wicketstuff.scala</groupId>
