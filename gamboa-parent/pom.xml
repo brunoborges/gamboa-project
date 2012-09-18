@@ -162,7 +162,6 @@
             <buildcommands>
               <buildCommand>
                 <name>org.scala-ide.sdt.core.scalabuilder</name>
-                <arguments></arguments>
               </buildCommand>
               <buildCommand>
                 <name>org.eclipse.ui.externaltools.ExternalToolBuilder</name>
