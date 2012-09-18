@@ -18,19 +18,15 @@ Gamboa is based on Apache Maven and has an Archetype. Previous knowledge on Mave
 To start your project, follow these steps:
 
 1. Install Apache Maven 3.0
-2. Clone these 3 Gamboa projects locally using git
+2. Clone the Gamboa project repository
 
-    $ git clone git@github.com:gamboa/gamboa-parent.git
-    $ git clone git@github.com:gamboa/gamboa-dsl.git
-    $ git clone git@github.com:gamboa/wicket-cdi.git
-    $ git clone git@github.com:gamboa/jee6.git
-3. Go to each folder (gamboa-parent, gamboa-dsl, wicket-cdi and jee6) and install the Maven artifacts
+    $ git clone git@github.com:brunoborges/gamboa-project.git
+3. Install the Maven artifacts
 
     $ mvn install
 4. Create your project
 
-    $ mvn archetype:generate -DarchetypeGroupId=org.gamboa-project -DarchetypeArtifactId=gamboa-jee6-archetype -DarchetypeVersion=1.0-SNAPSHOT -DgroupId=com.mycompany -DartifactId=myproject -DinteractiveMode=false
-
+    $ mvn archetype:generate -DarchetypeGroupId=org.gamboa-project -DarchetypeArtifactId=gamboa-jee-archetype -DarchetypeVersion=1.0-SNAPSHOT -DgroupId=com.mycompany -DartifactId=myproject -DinteractiveMode=false
 5. Run it (it will download and start GlassFish Embedded)
 
     $ cd myproject
