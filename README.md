@@ -34,6 +34,10 @@ To start your project, follow these steps:
 
     $ mvn install
 
+6. Now fire your browser at http://localhost:8080
+
+7. To have access, just fill the login form with some valid email and a password,  remember it. Create an account and then login.
+
 Project structure
 -------
 Here is the project structure Gamboa suggests for rapid development:
@@ -54,7 +58,7 @@ Here is the project structure Gamboa suggests for rapid development:
     |-- layout               --> .html files and presentation (.css, .js, images)
     |   |-- css              
     |   `-- js               --> your custom JS scripts
-    |       `-- libs         --> js libs like jQuery, modernizr and respond
+    |       `-- vendor       --> js libs like jQuery, modernizr and respond
     |
     |-- maven-eclipse.xml    
     |-- pom.xml
