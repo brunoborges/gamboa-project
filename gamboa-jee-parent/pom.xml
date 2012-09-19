@@ -14,6 +14,7 @@
     <groupId>org.gamboa-project</groupId>
     <artifactId>gamboa-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <relativePath>../gamboa-parent/pom.xml</relativePath>
   </parent>
 
   <properties>
