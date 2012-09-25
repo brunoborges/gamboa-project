@@ -1,20 +1,22 @@
 package code.webapp.pages
 
-import org.apache.wicket.authroles.authorization.strategies.role.annotations.AuthorizeInstantiation
-import code.webapp.MySession
+import code.webapp.Session
+import org.wicketstuff.scala.Fodel
 
-@AuthorizeInstantiation(Array("USER"))
-class Layout extends Base {
-
-  val user = MySession.get.user
-  homeLink("homeLink")
+abstract class Layout extends Base {
   
-  val nav = container("layoutNavbar")
-  nav.logoutLink("logout")
+  val menuLoggedIn = container("menuLoggedIn")
+  val navbarLoginForm = new LoginForm("loginForm")
 
-  def saveData() = {
-    service.update(user)
-    info(getString("DataSaved"))
+  add(navbarLoginForm)
+  homeLink("homeLink")
+
+  menuLoggedIn.logoutLink("logoutLink")
+  menuLoggedIn.label("labelUsername", new Fodel(Session.get.user.email))
+
+  override def onConfigure() = {
+    menuLoggedIn.setVisible(Session.get.isSignedIn())
+    navbarLoginForm.setVisible(!Session.get.isSignedIn())
   }
 
 }

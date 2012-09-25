@@ -1,14 +1,14 @@
 package code.services
 
 import code.services.email.{EmailSettings, EmailSenderService}
-import javax.inject.Inject
-import javax.inject.Qualifier
-import javax.ejb.Stateless
+import javax.inject._
+import javax.ejb._
 
 trait ContactService {
   def send(contact: Map[String, String])
 }
 
+@Local
 @Stateless
 class ContactServiceImpl extends ContactService {
 
