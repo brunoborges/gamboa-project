@@ -20,7 +20,7 @@
     <module>gamboa-jee-archetype</module>
     <module>gamboa-spring-parent</module>
     <module>gamboa-mongodb-archetype</module>
-    <module>gamboa-couchdb-archetype</module>
+<!--    <module>gamboa-couchdb-archetype</module> -->
   </modules>
 
   <build>
