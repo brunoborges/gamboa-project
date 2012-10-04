@@ -26,7 +26,6 @@ class EmailTemplateEngineImpl extends EmailTemplateEngine {
     val file = new File(resource.toURI())
     val reader = new FileReader(file)
     velocity.evaluate(velocityContext, writer, file.getName(), reader)
-    System.out.println(writer)
     writer.toString()
   }
 
