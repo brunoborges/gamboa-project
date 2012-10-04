@@ -1,11 +1,13 @@
 package code.services
 
 import code.services.email.{ EmailSettings, EmailSenderService }
+import code.services.email.settings.{SignUpSettings, RememberPasswordSettings}
 import code.data.User
 import scala.collection.JavaConversions._
 import scala.collection.mutable.HashMap
 import java.util.ArrayList
 import javax.ejb.Stateless
+import javax.inject.Inject
 import javax.persistence.{ PersistenceContext, EntityManagerFactory, EntityManager }
 
 trait UserService {
@@ -19,9 +21,7 @@ trait UserService {
 @Stateless
 class UserServiceImpl extends UserService {
 
-  // @Inject var emailSender: EmailSenderService = _
-  // @Inject @Qualifier("signUpEmailSettings") var sues: EmailSettings = _
-  // @Inject @Qualifier("rememberPassEmailSettings") var rpes: EmailSettings = _
+  @Inject var emailSender: EmailSenderService = _
 
   @PersistenceContext var em: EntityManager = _
 
@@ -33,8 +33,8 @@ class UserServiceImpl extends UserService {
 
   def create(user: User): Boolean = {
     em.persist(user)
+    emailSender.send(SignUpSettings, user.email, Map("name" -> user.email))
     true
-    // emailSender.send(sues, user.email, Map("name" -> user.name))
   }
 
   def authenticate(email: String, password: String): Option[User] = {
@@ -53,7 +53,7 @@ class UserServiceImpl extends UserService {
   def rememberPassword(email: String): Boolean = {
     findUserByEmail(email) match {
       case Some(o) ⇒ {
-        //emailSender.send(rpes, o.email, Map("name" -> o.name, "email" -> o.email, "password" -> o.password))
+        emailSender.send(RememberPasswordSettings, o.email, Map("name" -> o.email, "email" -> o.email, "password" -> o.password))
         true
       }
       case None ⇒ false

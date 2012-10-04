@@ -1,16 +1,13 @@
 package code.services.email;
 
-import javax.mail.internet.MimeMessage
 import scala.util.Random
-import scala.reflect.BeanProperty
+
+import javax.annotation.Resource
 import javax.ejb.Stateless
 import javax.inject.Inject
-import javax.mail.Session
-import javax.annotation.Resource
+import javax.mail.{Session, Transport}
 import javax.mail.Message.RecipientType
-import javax.mail.internet.InternetAddress
-import javax.mail.internet.MimeBodyPart
-import javax.mail.Transport
+import javax.mail.internet.{InternetAddress, MimeMessage}
 
 trait EmailSenderService {
   def send(settings: EmailSettings, to: String, values: Map[String, Object])
