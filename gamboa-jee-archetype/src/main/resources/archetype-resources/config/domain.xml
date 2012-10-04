@@ -32,7 +32,8 @@
       <property name="databaseName" value="${com.sun.aas.instanceRoot}/lib/databases/ejbtimer"></property>
       <property name="connectionAttributes" value=";create=true"></property>
     </jdbc-connection-pool>
-    <mail-resource host="smtp.gmail.com" description="Gamboa" jndi-name="gmail" from="foo@gmail.com" user="foo@gmail.com">
+    <!-- Modify this mail resource with your SMTP mail account -->
+    <mail-resource host="smtp.gmail.com" description="${artifactId} Mail Session" jndi-name="mail/${artifactId}" from="foo@gmail.com" user="foo@gmail.com">
       <property name="mail-smtps-password" value="somepass"></property>
       <property name="mail-smtps-socketFactory-fallback" value="false"></property>
       <property name="mail-smtps-starttls-enable" value="true"></property>
@@ -46,7 +47,7 @@
     <server name="server" config-ref="server-config">
       <resource-ref ref="jdbc/__TimerPool"></resource-ref>
       <resource-ref ref="jdbc/__default"></resource-ref>
-      <resource-ref ref="gmail"></resource-ref>
+      <resource-ref ref="mail/${artifactId}"></resource-ref>
     </server>
   </servers>
   <nodes>

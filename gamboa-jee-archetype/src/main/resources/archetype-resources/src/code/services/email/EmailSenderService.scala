@@ -21,7 +21,7 @@ trait EmailSenderService {
 class EmailSenderServiceImpl extends EmailSenderService {
 
   @Inject var templates: EmailTemplateEngine = _
-  @Resource(name = "mail/groupbirthdays") var session: Session = _
+  @Resource(name = "mail/${artifactId}") var session: Session = _
 
   def send(settings: EmailSettings, values: Map[String, Object]) =
     send(settings, settings.to, values)
