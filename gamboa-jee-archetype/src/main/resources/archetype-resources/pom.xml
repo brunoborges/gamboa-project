@@ -102,8 +102,14 @@
     </dependency>
 
     <dependency>
-      <groupId>net.ftlines.wicket-cdi</groupId>
+      <groupId>org.apache.wicket</groupId>
       <artifactId>wicket-cdi</artifactId>
+      <exclusions>
+        <exclusion>
+         <groupId>javax.enterprise</groupId>
+         <artifactId>cdi-api</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
 
     <dependency>
