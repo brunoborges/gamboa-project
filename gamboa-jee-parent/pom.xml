@@ -22,7 +22,6 @@
     <seam-conversation-weld.version>3.0.0.Final</seam-conversation-weld.version>
     <glassfish-embedded.version>3.1.2.2</glassfish-embedded.version>
     <javaee.version>6.0</javaee.version>
-    <wicket-cdi.version>6.0</wicket-cdi.version>
     <mysql.version>5.1.21</mysql.version>
   </properties>
 
@@ -30,9 +29,15 @@
     <dependencies>
       <!-- WICKET+CDI -->
       <dependency>
-        <groupId>net.ftlines.wicket-cdi</groupId>
+        <groupId>org.apache.wicket</groupId>
         <artifactId>wicket-cdi</artifactId>
-        <version>${wicket-cdi.version}</version>
+        <version>${wicket.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>javax.enterprise</groupId>
+            <artifactId>cdi-api</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
 
       <dependency>
