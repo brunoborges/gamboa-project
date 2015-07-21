@@ -104,7 +104,7 @@ Here's the list of all Gamboa integrated frameworks and technologies:
 
 * jQuery 1.6.1
 * Modernizr 1.7
-* HTML5 Initializr (http://initializr.com/)
+* HTML5 Initializr (http://www.initializr.com/)
 
 Roadmap
 -------
