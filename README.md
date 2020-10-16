@@ -1,9 +1,9 @@
       ____                 _                      ____            _           _   
      / ___| __ _ _ __ ___ | |__   ___   __ _     |  _ \ _ __ ___ (_) ___  ___| |_ 
-    | |  _ / _` | '_ ` _ \| '_ \ / _ \ / _` |    | |_) | '__/ _ \| |/ _ \/ __| __|
+    | |  _ / _` | '_ ` _ \| '_ \ / _ \ / _` |    | |_) | '__/ _ \| |/ _ \/ __| __
     | |_| | (_| | | | | | | |_) | (_) | (_| |    |  __/| | | (_) | |  __/ (__| |_ 
      \____|\__,_|_| |_| |_|_.__/ \___/ \__,_|    |_|   |_|  \___// |\___|\___|\__|
-                                                               |__/               
+    This is an amazing project                                                           |__/               
 What is it?
 =======
 It is a project structure for rapid web application development based on Scala, Apache Wicket, and your flavor of base framework: Java EE with JPA or Spring with MongoDB. It also comes with Velocity for email templates processing.
