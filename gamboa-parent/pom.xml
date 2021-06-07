@@ -22,7 +22,7 @@
     <wicket.version>6.1.0</wicket.version>
     <wicketstuff.version>6.0.0</wicketstuff.version>
     <slf4j.version>1.7.1</slf4j.version>
-    <logback.version>1.0.7</logback.version>
+    <logback.version>1.2.0</logback.version>
     <scala.version>2.9.2</scala.version>
     <velocity.version>1.7</velocity.version>
     <junit.version>4.10</junit.version>
