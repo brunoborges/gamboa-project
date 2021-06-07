@@ -72,7 +72,7 @@ Logical services are EJB3 or Spring-based POJOs and should go to `code/services`
 
 The `code/services/email` package has some useful classes for sending emails. Templates should go to `config/templates` and can be Velocity templates in HTML. All configuration like SMTP properties are located in the `emailContext.xml` for Spring-based. The JEE archetype requires a JNDI name for the MailSession resource.
 
-### Want a clean structure?
+#### Want a clean structure?
 If you want a clean project structure, without any code, just create a project based on `gamboa-jee-archetype` and delete everything from `code/webapp/pages` and `layout`. Then drop your functional prototype to `layout` and start coding from scratch. Remember to follow Wicket's convention (one WebPage/Panel/Border class for each HTML file).
 
 IDE Support
