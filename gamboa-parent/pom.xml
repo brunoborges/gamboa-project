@@ -25,7 +25,7 @@
     <logback.version>1.2.0</logback.version>
     <scala.version>2.9.2</scala.version>
     <velocity.version>1.7</velocity.version>
-    <junit.version>4.10</junit.version>
+    <junit.version>4.13.1</junit.version>
   </properties>
 
   <dependencyManagement>
