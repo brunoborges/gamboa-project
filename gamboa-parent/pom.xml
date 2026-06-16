@@ -18,14 +18,16 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <scala.maven.plugin.version>3.1.0</scala.maven.plugin.version>
-    <wicket.version>7.17.0</wicket.version>
-    <wicketstuff.version>6.0.0</wicketstuff.version>
-    <slf4j.version>1.7.1</slf4j.version>
-    <logback.version>1.2.0</logback.version>
-    <scala.version>2.9.2</scala.version>
-    <velocity.version>1.7</velocity.version>
-    <junit.version>4.13.1</junit.version>
+    <maven.compiler.release>17</maven.compiler.release>
+    <scala.maven.plugin.version>4.9.2</scala.maven.plugin.version>
+    <wicket.version>10.5.0</wicket.version>
+    <wicketstuff.version>10.5.0</wicketstuff.version>
+    <slf4j.version>2.0.16</slf4j.version>
+    <logback.version>1.5.18</logback.version>
+    <scala.version>2.13.16</scala.version>
+    <scala.compat.version>2.13</scala.compat.version>
+    <velocity.version>2.4.1</velocity.version>
+    <junit.version>4.13.2</junit.version>
   </properties>
 
   <dependencyManagement>
@@ -55,7 +57,7 @@
       <!-- Velocity -->
       <dependency>
         <groupId>org.apache.velocity</groupId>
-        <artifactId>velocity</artifactId>
+        <artifactId>velocity-engine-core</artifactId>
         <version>${velocity.version}</version>
       </dependency>
 
@@ -68,11 +70,6 @@
       <dependency>
         <groupId>org.apache.wicket</groupId>
         <artifactId>wicket-extensions</artifactId>
-        <version>${wicket.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.wicket</groupId>
-        <artifactId>wicket-datetime</artifactId>
         <version>${wicket.version}</version>
       </dependency>
       <dependency>
@@ -110,7 +107,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-war-plugin</artifactId>
-          <version>2.2</version>
+          <version>3.4.0</version>
           <configuration>
             <failOnMissingWebXml>false</failOnMissingWebXml>
             <webResources>
@@ -150,36 +147,15 @@
             </execution>
           </executions>
           <configuration>
+            <scalaVersion>${scala.version}</scalaVersion>
+            <scalaCompatVersion>${scala.compat.version}</scalaCompatVersion>
+            <args>
+              <arg>-release:17</arg>
+            </args>
             <jvmArgs>
               <jvmArg>-Xms128m</jvmArg>
-              <jvmArg>-Xmx256m</jvmArg>
+              <jvmArg>-Xmx512m</jvmArg>
             </jvmArgs>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-eclipse-plugin</artifactId>
-          <version>2.9</version>
-          <configuration>
-            <downloadSources>true</downloadSources>
-            <projectnatures>
-              <projectnature>org.scala-ide.sdt.core.scalanature</projectnature>
-              <projectnature>org.eclipse.jdt.core.javanature</projectnature>
-            </projectnatures>
-            <buildcommands>
-              <buildCommand>
-                <name>org.scala-ide.sdt.core.scalabuilder</name>
-              </buildCommand>
-              <buildCommand>
-                <name>org.eclipse.ui.externaltools.ExternalToolBuilder</name>
-                <arguments>
-                  <LaunchConfigHandle>&lt;project&gt;/.externalToolBuilders/Maven_Ant_Builder.launch</LaunchConfigHandle>
-                </arguments>
-              </buildCommand>
-            </buildcommands>
-            <classpathContainers>
-              <classpathContainer>org.scala-ide.sdt.launching.SCALA_CONTAINER</classpathContainer>
-            </classpathContainers>
           </configuration>
         </plugin>
       </plugins>

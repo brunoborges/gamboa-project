@@ -8,7 +8,7 @@ import org.apache.wicket.markup.html.form.{ TextField, TextArea, RequiredTextFie
 import org.apache.wicket.model.CompoundPropertyModel
 import org.apache.wicket.spring.injection.annot.SpringBean
 import org.apache.wicket.validation.validator.EmailAddressValidator
-import scala.collection.JavaConversions._
+import scala.jdk.CollectionConverters._
 
 class Contact extends BaseTemplate {
 
@@ -36,7 +36,7 @@ class Contact extends BaseTemplate {
     override def onSubmit() {
       if (!hasError()) {
         val contato = getModelObject()
-        service.send(contato.toMap)
+        service.send(contato.asScala.toMap)
         contato.clear()
         info(getString("contact.sent"))
       }

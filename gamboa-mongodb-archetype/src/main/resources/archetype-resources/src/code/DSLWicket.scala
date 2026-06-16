@@ -1,7 +1,7 @@
 package code
 
-import scala.collection.JavaConversions._
-import org.apache.wicket.datetime.markup.html.form.DateTextField
+import scala.jdk.CollectionConverters._
+import scala.reflect.ClassTag
 import org.apache.wicket.markup.html.basic.Label
 import org.apache.wicket.markup.html.form.{ TextField, TextArea, RadioGroup, Radio, PasswordTextField, DropDownChoice, Button }
 import org.apache.wicket.markup.html.link.{ Link, BookmarkablePageLink }
@@ -42,8 +42,8 @@ trait DSLWicket {
   def label[T](id: String, model: IModel[T] = null): Label = { val label = new Label(id, model); add(label); label }
   def label[T](id: String, value: String): Label = { val label = new Label(id, value); add(label); label }
   implicit def ser2model[S <: Serializable](ser: S): IModel[S] = Model.of(ser)
-  def textField[T](id: String)(implicit m: scala.reflect.Manifest[T]): RequireableTextField[T] = {
-    val field = new TextField[T](id) with RequireableTextField[T]; field.setType(m.erasure); add(field); field
+  def textField[T](id: String)(implicit m: ClassTag[T]): RequireableTextField[T] = {
+    val field = new TextField[T](id) with RequireableTextField[T]; field.setType(m.runtimeClass); add(field); field
   }
   def emailField(id: String): RequireableTextField[String] = {
     val ef = textField[String](id)
@@ -52,11 +52,8 @@ trait DSLWicket {
   def passField(id: String): PasswordTextField = {
     val pass = new PasswordTextField(id); add(pass); pass;
   }
-  def textArea[T](id: String)(implicit m: scala.reflect.Manifest[T]): RequireableTextArea[T] = {
-    val field = new TextArea[T](id) with RequireableTextArea[T]; field.setType(m.erasure); add(field); field
-  }
-  def dateField(id: String, format: String = "dd/MM/yyyy"): DateTextField = {
-    val field = DateTextField.forDatePattern(id, format); add(field); field
+  def textArea[T](id: String)(implicit m: ClassTag[T]): RequireableTextArea[T] = {
+    val field = new TextArea[T](id) with RequireableTextArea[T]; field.setType(m.runtimeClass); add(field); field
   }
   def button(id: String, submit: () ⇒ _): Button = {
     val button = new Button(id) { override def onSubmit() = submit() }
@@ -97,15 +94,15 @@ trait DSLWicket {
     val lv = new ListView[T](id) { override def populateItem(item: ListItem[T]) = populate(item) }
     add(lv); lv
   }
-  def listView[T](id: String, populate: (ListItem[T]) ⇒ _, m: IModel[_ <: java.util.List[_ <: T]]): ListView[T] = {
+  def listView[T](id: String, populate: (ListItem[T]) ⇒ _, m: IModel[java.util.List[T]]): ListView[T] = {
     val lv = new ListView[T](id, m) { override def populateItem(item: ListItem[T]) = populate(item) }
     add(lv); lv
   }
-  def pageableListView[T](id: String, populate: (ListItem[T]) ⇒ _, m: IModel[_ <: java.util.List[_ <: T]], pageSize: Int): DSLPageable[T] = {
+  def pageableListView[T](id: String, populate: (ListItem[T]) ⇒ _, m: IModel[java.util.List[T]], pageSize: Long): DSLPageable[T] = {
     val lv = new PageableListView[T](id, m, pageSize) with DSLPageable[T] { override def populateItem(item: ListItem[T]) = populate(item) }
     add(lv); lv
   }
-  def pageableListView[T](id: String, populate: (ListItem[T]) ⇒ _, l: java.util.List[_ <: T], pageSize: Int): DSLPageable[T] = {
+  def pageableListView[T](id: String, populate: (ListItem[T]) ⇒ _, l: java.util.List[T], pageSize: Long): DSLPageable[T] = {
     val lv = new PageableListView[T](id, l, pageSize) with DSLPageable[T] {
       override def populateItem(item: ListItem[T]) = populate(item)
     }
@@ -114,7 +111,7 @@ trait DSLWicket {
   def pagingNavigator(id: String, pageable: IPageable): PagingNavigator = new PagingNavigator(id, pageable)
   def mobject[T](obj: T) = setDefaultModelObject(obj)
   def mobject[T]() = getDefaultModelObject().asInstanceOf[T]
-  def dropDownChoice[T](id: String, choices: java.util.List[_ <: T] = null)(implicit m: scala.reflect.Manifest[T]): DropDownChoice[T] = {
+  def dropDownChoice[T](id: String, choices: java.util.List[_ <: T] = null)(implicit m: ClassTag[T]): DropDownChoice[T] = {
     val dropdown = new DropDownChoice[T](id, choices); add(dropdown); dropdown
   }
   def emailLink(id: String, email: String, label: String) { val el = new ExternalLink(id, "mailto:" + email, label); add(el); el; }
@@ -123,7 +120,7 @@ trait DSLWicket {
     val ddc = new DropDownChoice[T](id)
     add(ddc); ddc
   }
-  def select[T](id: String, elements: List[T]) = {
+  def select[T](id: String, elements: java.util.List[T]) = {
     val ddc = new DropDownChoice[T](id, elements)
     add(ddc); ddc
   }

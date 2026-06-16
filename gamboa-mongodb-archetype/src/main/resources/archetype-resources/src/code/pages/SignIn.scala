@@ -1,11 +1,6 @@
 package code.pages
 
 import org.apache.wicket.validation.validator.EmailAddressValidator
-import org.apache.wicket.extensions.yui.calendar.DatePicker
-import org.apache.wicket.datetime.markup.html.form.DateTextField
-import java.util.Date
-import org.apache.wicket.model.Model
-import org.apache.wicket.authroles.authentication.AuthenticatedWebSession
 import org.apache.wicket.markup.html.form.PasswordTextField
 import org.apache.wicket.markup.html.form.RequiredTextField
 import org.apache.wicket.model.CompoundPropertyModel
@@ -32,7 +27,7 @@ class SignIn extends BaseTemplate {
       }
     }
 
-    def setDefaultResponsePageIfNecessary() = if (!continueToOriginalDestination()) setResponsePage(classOf[HomePage])
+    def setDefaultResponsePageIfNecessary() = { continueToOriginalDestination(); setResponsePage(classOf[HomePage]) }
 
   }
 }

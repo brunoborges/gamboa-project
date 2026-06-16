@@ -5,15 +5,11 @@ import org.apache.wicket.authroles.authentication.AuthenticatedWebApplication
 import org.apache.wicket.Component
 import org.apache.wicket.application.IComponentInstantiationListener
 import org.apache.wicket.markup.html.form.FormComponent
-import org.apache.wicket.request.mapper.MountedMapper
-import org.apache.wicket.settings.IResourceSettings
 import org.apache.wicket.spring.injection.annot.SpringComponentInjector
-import org.apache.wicket.util.resource.locator.ResourceStreamLocator
-import org.apache.wicket.request.mapper.parameter.PageParametersEncoder
 
 class Application extends AuthenticatedWebApplication {
 
-  override def init() {
+  override def init(): Unit = {
     super.init()
 
     // enable the autoFormMarkupId if you want wicket:id to become CSS id

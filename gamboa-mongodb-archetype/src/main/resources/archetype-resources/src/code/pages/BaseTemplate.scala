@@ -19,17 +19,17 @@ class BaseTemplate extends WebPage {
     override def isVisible = block()
   }
 
-  object logOutLink extends Link("logOutLink") {
+  object logOutLink extends Link[Any]("logOutLink") {
     override def getStatelessHint = true
-    def onClick = {
+    override def onClick(): Unit = {
       session.signOut()
       setResponsePage(classOf[HomePage])
     }
   }
 
-  object signInLink extends Link("signInLink") {
+  object signInLink extends Link[Any]("signInLink") {
     override def getStatelessHint = true
-    def onClick = setResponsePage(classOf[SignIn])
+    override def onClick(): Unit = setResponsePage(classOf[SignIn])
   }
 
   def session: Session = AuthenticatedWebSession.get().asInstanceOf[Session]

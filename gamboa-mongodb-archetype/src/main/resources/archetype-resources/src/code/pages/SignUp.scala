@@ -7,8 +7,7 @@ import org.apache.wicket.model.CompoundPropertyModel
 import org.apache.wicket.spring.injection.annot.SpringBean
 import org.apache.wicket.validation.{ IValidator, IValidatable, ValidationError }
 import org.apache.wicket.validation.validator.{ EmailAddressValidator, StringValidator }
-import org.apache.wicket.validation.validator.StringValidator.MinimumLengthValidator
-import scala.collection.JavaConversions._
+import scala.jdk.CollectionConverters._
 
 class SignUp extends BaseTemplate {
 
@@ -34,13 +33,13 @@ class SignUp extends BaseTemplate {
 
         if (users.exists(email)) {
           val error = new ValidationError();
-          error.addMessageKey("EmailExists");
+          error.addKey("EmailExists");
           error.setVariable("email", email);
           validatable.error(error);
         }
       }
     });
-    pass.add(new MinimumLengthValidator(8));
+    pass.add(StringValidator.minimumLength(8));
 
     add(em)
     add(pass)
@@ -50,7 +49,7 @@ class SignUp extends BaseTemplate {
 
     override def onSubmit() = {
       val signUpVO = getModelObject()
-      signUp.signUp(signUpVO.toMap)
+      signUp.signUp(signUpVO.asScala.toMap)
       setResponsePage(classOf[SignUpSuccess])
     }
   }

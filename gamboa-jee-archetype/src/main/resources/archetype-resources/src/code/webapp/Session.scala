@@ -6,8 +6,8 @@ import org.apache.wicket.request.Request
 
 import code.data.User
 import code.services.UserService
-import javax.inject.Inject
-import javax.persistence.Entity
+import jakarta.inject.Inject
+import jakarta.persistence.Entity
 
 class Session(request: Request) extends AuthenticatedWebSession(request) {
 

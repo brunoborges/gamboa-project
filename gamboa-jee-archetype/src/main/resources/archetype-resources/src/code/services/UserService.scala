@@ -3,12 +3,9 @@ package code.services
 import code.services.email.{ EmailSettings, EmailSenderService }
 import code.services.email.settings.{SignUpSettings, RememberPasswordSettings}
 import code.data.User
-import scala.collection.JavaConversions._
-import scala.collection.mutable.HashMap
-import java.util.ArrayList
-import javax.ejb.Stateless
-import javax.inject.Inject
-import javax.persistence.{ PersistenceContext, EntityManagerFactory, EntityManager }
+import jakarta.ejb.Stateless
+import jakarta.inject.Inject
+import jakarta.persistence.{ PersistenceContext, EntityManagerFactory, EntityManager }
 
 trait UserService {
   def update(user: User)

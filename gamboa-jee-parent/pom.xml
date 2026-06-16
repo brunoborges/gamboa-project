@@ -19,10 +19,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <seam-conversation-weld.version>3.0.0.Final</seam-conversation-weld.version>
-    <glassfish-embedded.version>3.1.2.2</glassfish-embedded.version>
-    <javaee.version>6.0</javaee.version>
-    <mysql.version>8.0.16</mysql.version>
+    <jakartaee.version>10.0.0</jakartaee.version>
+    <mysql.version>8.0.33</mysql.version>
   </properties>
 
   <dependencyManagement>
@@ -32,82 +30,22 @@
         <groupId>org.apache.wicket</groupId>
         <artifactId>wicket-cdi</artifactId>
         <version>${wicket.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>javax.enterprise</groupId>
-            <artifactId>cdi-api</artifactId>
-          </exclusion>
-        </exclusions>
       </dependency>
 
       <dependency>
-        <groupId>org.jboss.seam.conversation</groupId>
-        <artifactId>seam-conversation-weld</artifactId>
-        <version>${seam-conversation-weld.version}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>javax</groupId>
-        <artifactId>javaee-api</artifactId>
-        <version>${javaee.version}</version>
+        <groupId>jakarta.platform</groupId>
+        <artifactId>jakarta.jakartaee-api</artifactId>
+        <version>${jakartaee.version}</version>
         <scope>provided</scope>
       </dependency>
 
       <!-- MySQL -->
       <dependency>
-        <groupId>mysql</groupId>
-        <artifactId>mysql-connector-java</artifactId>
+        <groupId>com.mysql</groupId>
+        <artifactId>mysql-connector-j</artifactId>
         <version>${mysql.version}</version>
         <scope>test</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>
-
-  <build>
-    <pluginManagement>
-      <plugins>
-        <!-- GlassFish Plugin -->
-        <plugin>
-          <groupId>org.glassfish.embedded</groupId>
-          <artifactId>maven-embedded-glassfish-plugin</artifactId>
-          <version>${glassfish-embedded.version}</version>
-          <executions>
-            <execution>
-              <phase>install</phase>
-              <goals>
-                <goal>run</goal>
-              </goals>
-            </execution>
-            <execution>
-              <id>glassfish-deploy</id>
-              <phase>package</phase>
-              <goals>
-                 <goal>admin</goal>
-              </goals>
-              <configuration>
-                <commands>
-                  <param>deploy ${project.build.directory}/${project.build.finalName}.war</param>
-                </commands>
-              </configuration>
-            </execution>
-          </executions>
-          <configuration>
-            <goalPrefix>embedded-glassfish</goalPrefix>
-            <configFile>config/domain.xml</configFile>
-            <contextRoot>/</contextRoot>
-            <app>${project.build.directory}/${project.build.finalName}.war</app>
-            <port>8080</port>
-            <autoDelete>false</autoDelete>
-          </configuration>
-          <dependencies>
-            <dependency>
-              <groupId>org.osgi</groupId>
-              <artifactId>org.osgi.core</artifactId>
-              <version>5.0.0</version>
-            </dependency>
-          </dependencies>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-  </build>
 </project>

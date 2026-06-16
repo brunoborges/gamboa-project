@@ -15,7 +15,7 @@ How to create a new project?
 Gamboa is based on Apache Maven and has archetypes. Previous knowledge on Maven is required.
 To start your project, follow these steps:
 
-1. Install Apache Maven 3.0 (go to http://maven.apache.org)
+1. Install Apache Maven 3.9+ and a JDK 17 or newer (the archetypes target Java 17 bytecode and are tested on JDK 21/25)
 2. Clone the Gamboa project locally using git
 
     $ git clone git@github.com:brunoborges/gamboa-project.git
@@ -28,15 +28,20 @@ To start your project, follow these steps:
 
     $ mvn archetype:generate -DarchetypeGroupId=org.gamboa-project -DarchetypeArtifactId=gamboa-jee-archetype -DarchetypeVersion=1.0-SNAPSHOT -DgroupId=com.mycompany -DartifactId=myproject -DinteractiveMode=false
 
-5. Run it (it will download and start GlassFish Embedded)
+5. Build the project (produces a WAR under `target/`)
 
     $ cd myproject
 
-    $ mvn install
+    $ mvn package
 
-6. Now fire your browser at http://localhost:8080
+6. Deploy and run it:
 
-7. To have access, just fill the login form with some valid email and a password,  remember it. Create an account and then login.
+    * **gamboa-jee-archetype** (Jakarta EE 10): deploy the generated WAR to a Jakarta EE 10 server such as GlassFish 7+, Payara 6 or WildFly 30+.
+    * **gamboa-mongodb-archetype** (Spring 6 + MongoDB): start a local MongoDB, then run the embedded Jetty 12 plugin with `mvn jetty:run` (or deploy the WAR to any Jakarta Servlet 6 container).
+
+7. Now fire your browser at http://localhost:8080
+
+8. To have access, just fill the login form with some valid email and a password,  remember it. Create an account and then login.
 
 Project structure
 -------
@@ -60,7 +65,6 @@ Here is the project structure Gamboa suggests for rapid development:
     |   `-- js               --> your custom JS scripts
     |       `-- vendor       --> js libs like jQuery, modernizr and respond
     |
-    |-- maven-eclipse.xml    
     |-- pom.xml
 
 ### Project structure dismistified
@@ -77,15 +81,11 @@ If you want a clean project structure, without any code, just create a project b
 
 IDE Support
 -------
-Projects created with Gamboa Archetype already have Eclipse files configured. They were generated for Eclipse Helios 3.6. Also, it is better to have the Scala IDE installed to have better support at editing and hot deployment during development. Another great tool is the Aptana Studio for HTML, CSS and JavaScript edition.
-
-### Scala IDE - Update site (for Scala 2.9.z)
-
-     http://download.scala-ide.org/releases-29/stable/site
+Any IDE with Scala support works well. [IntelliJ IDEA](https://www.jetbrains.com/idea/) with the Scala plugin, or [Visual Studio Code](https://code.visualstudio.com/) with the Metals extension, are recommended for editing the Scala sources, HTML, CSS and JavaScript.
 
 Debugging
 -------
-It is possible to debug by simply running the debug.sh script that will start the JVM with a debug server at port 9009. Then on Eclipse, launch a Remote Application debug agent and attach to that port.
+It is possible to debug by simply running the debug.sh script that will start the JVM with a debug server at port 9009. Then attach a Remote JVM debugger from your IDE to that port.
 
 Frameworks and Technologies
 -------
@@ -93,11 +93,14 @@ Here's the list of all Gamboa integrated frameworks and technologies:
 
 1. Server-side libraries
 
-* Scala 2.9.2
-* Apache Wicket 6.0
-* Velocity 1.7
-* JUnit 4.10
-* SLF4J 1.7.1
+* Java 17+ (tested on JDK 21/25)
+* Scala 2.13
+* Apache Wicket 10
+* Jakarta EE 10 (gamboa-jee-archetype)
+* Spring Framework 6 + Spring Security 6 + MongoDB (gamboa-mongodb-archetype)
+* Apache Velocity 2
+* JUnit 4.13
+* SLF4J 2
 * Logback
 
 2. Client-side libraries

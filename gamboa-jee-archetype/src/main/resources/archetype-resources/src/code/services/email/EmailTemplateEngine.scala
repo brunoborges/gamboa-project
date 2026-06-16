@@ -2,12 +2,12 @@ package code.services.email;
 
 import java.io.{File, FileReader, StringWriter}
 
-import scala.collection.JavaConversions.mapAsJavaMap
+import scala.jdk.CollectionConverters._
 
 import org.apache.velocity.VelocityContext
 import org.apache.velocity.app.VelocityEngine
 
-import javax.ejb.Singleton
+import jakarta.ejb.Singleton
 
 trait EmailTemplateEngine {
   def transform(template: String, model: Map[String, Object]): String
@@ -21,7 +21,7 @@ class EmailTemplateEngineImpl extends EmailTemplateEngine {
   def transform(template: String, model: Map[String, Object]): String = {
     var resource = getClass().getClassLoader().getResource(template)
     val writer = new StringWriter()
-    val velocityContext = new VelocityContext(model)
+    val velocityContext = new VelocityContext(model.asJava)
 
     val file = new File(resource.toURI())
     val reader = new FileReader(file)

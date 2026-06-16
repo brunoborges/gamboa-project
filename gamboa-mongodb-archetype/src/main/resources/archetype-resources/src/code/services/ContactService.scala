@@ -3,7 +3,7 @@ package code.services
 import email.{ EmailSettings, EmailSenderService }
 import org.springframework.beans.factory.annotation.{ Qualifier, Autowired }
 import org.springframework.stereotype.Service
-import scala.reflect.BeanProperty
+import scala.beans.BeanProperty
 
 trait ContactService {
   def send(contact: Map[String, String])

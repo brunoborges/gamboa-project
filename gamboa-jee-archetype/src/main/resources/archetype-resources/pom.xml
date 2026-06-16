@@ -17,7 +17,6 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <gamboa.version>1.0-SNAPSHOT</gamboa.version>
-    <mysql.version>5.1.20</mysql.version>
   </properties>
 
   <dependencyManagement>
@@ -57,7 +56,7 @@
     <!-- Velocity -->
     <dependency>
       <groupId>org.apache.velocity</groupId>
-      <artifactId>velocity</artifactId>
+      <artifactId>velocity-engine-core</artifactId>
     </dependency>
 
     <!-- Wicket -->
@@ -68,10 +67,6 @@
     <dependency>
       <groupId>org.apache.wicket</groupId>
       <artifactId>wicket-extensions</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.wicket</groupId>
-      <artifactId>wicket-datetime</artifactId>
     </dependency>
     <dependency>
       <groupId>org.apache.wicket</groupId>
@@ -94,34 +89,23 @@
       <artifactId>scala-library</artifactId>
     </dependency>
 
-    <!-- JAVA EE DEPENDENCIES -->
+    <!-- JAKARTA EE DEPENDENCIES -->
     <!-- WICKET+CDI -->
-    <dependency>
-      <groupId>org.jboss.seam.conversation</groupId>
-      <artifactId>seam-conversation-weld</artifactId>
-    </dependency>
-
     <dependency>
       <groupId>org.apache.wicket</groupId>
       <artifactId>wicket-cdi</artifactId>
-      <exclusions>
-        <exclusion>
-         <groupId>javax.enterprise</groupId>
-         <artifactId>cdi-api</artifactId>
-        </exclusion>
-      </exclusions>
     </dependency>
 
     <dependency>
-      <groupId>javax</groupId>
-      <artifactId>javaee-api</artifactId>
+      <groupId>jakarta.platform</groupId>
+      <artifactId>jakarta.jakartaee-api</artifactId>
       <scope>provided</scope>
     </dependency>
 
     <!-- MySQL -->
     <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
+      <groupId>com.mysql</groupId>
+      <artifactId>mysql-connector-j</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -162,16 +146,8 @@
         <artifactId>maven-war-plugin</artifactId>
       </plugin>
       <plugin>
-        <groupId>org.glassfish.embedded</groupId>
-        <artifactId>maven-embedded-glassfish-plugin</artifactId>
-      </plugin>
-      <plugin>
         <groupId>net.alchim31.maven</groupId>
         <artifactId>scala-maven-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-eclipse-plugin</artifactId>
       </plugin>
     </plugins>
   </build>

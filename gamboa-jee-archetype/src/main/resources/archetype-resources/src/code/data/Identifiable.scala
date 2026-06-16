@@ -1,9 +1,9 @@
 package code.data
 
-import scala.reflect.BeanProperty
+import scala.beans.BeanProperty
 
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
+import jakarta.persistence.GeneratedValue
+import jakarta.persistence.Id
 
 trait Identifiable extends Serializable {
   @Id @GeneratedValue @BeanProperty var id: String = _

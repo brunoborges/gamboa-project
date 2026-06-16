@@ -1,12 +1,12 @@
 package code.services.email;
 
-import javax.mail.internet.MimeMessage
+import jakarta.mail.internet.MimeMessage
 import org.springframework.stereotype.Service
 import org.springframework.scheduling.annotation.Async
 import org.springframework.mail.javamail.{ MimeMessageHelper, MimeMessagePreparator, JavaMailSender }
 import org.springframework.beans.factory.annotation.Autowired
 import scala.util.Random
-import scala.reflect.BeanProperty
+import scala.beans.BeanProperty
 
 trait EmailSenderService {
 

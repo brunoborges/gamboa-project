@@ -2,8 +2,8 @@ package code.services
 
 import code.services.email.{EmailSettings, EmailSenderService}
 import code.services.email.settings.ContactSettings
-import javax.inject._
-import javax.ejb._
+import jakarta.inject._
+import jakarta.ejb._
 
 trait ContactService {
   def send(contact: Map[String, String])

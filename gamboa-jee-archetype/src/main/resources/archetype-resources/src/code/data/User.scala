@@ -1,8 +1,8 @@
 package code.data
 
-import scala.reflect.BeanProperty
-import javax.persistence.Entity
-import javax.persistence.Table
+import scala.beans.BeanProperty
+import jakarta.persistence.Entity
+import jakarta.persistence.Table
 
 @Entity
 @Table(name = "USERS")

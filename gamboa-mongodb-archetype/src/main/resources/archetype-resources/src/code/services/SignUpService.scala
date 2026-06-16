@@ -1,17 +1,11 @@
 package code.services
 
-import scala.collection.mutable.HashMap
-import com.mongodb.{ DBObject, DBCollection, DB, BasicDBObjectBuilder }
-import com.mongodb.casbah.commons.MongoDBObject
-import com.mongodb.casbah.Imports._
 import email.{ EmailSenderService, EmailSettings }
-import org.springframework.beans.factory.annotation.{ Qualifier, Autowired }
+import org.springframework.beans.factory.annotation.{ Autowired, Qualifier }
 import org.springframework.stereotype.Service
-import scala.reflect.BeanProperty
-import scala.collection.JavaConversions._
 
 trait SignUpService {
-  def signUp(newUser: Map[String, String])
+  def signUp(newUser: Map[String, String]): Unit
 }
 
 @Service
@@ -27,15 +21,12 @@ class SignUpServiceImpl extends SignUpService {
   @Qualifier("signUpEmailSettings")
   var emailSettings: EmailSettings = _
 
-  def signUp(user: Map[String, String]) {
-	var defaultRole = "ADMIN"
-    if (userService.query(Map("role" -> "ADMIN")).size > 0) {
-      defaultRole = "USER"
-    }
+  def signUp(user: Map[String, String]): Unit = {
+    val defaultRole = if (userService.query(Map("role" -> "ADMIN")).nonEmpty) "USER" else "ADMIN"
 
-    val tmpUser = HashMap[String, String]("role" -> defaultRole) ++ user
-    userService += tmpUser.toMap
-    emailSender.send(emailSettings, user.get("email").get, Map("user" -> tmpUser))
+    val newUser = user + ("role" -> defaultRole)
+    userService += newUser.asInstanceOf[Map[String, Any]]
+    emailSender.send(emailSettings, user("email"), Map("user" -> newUser))
   }
 
 }

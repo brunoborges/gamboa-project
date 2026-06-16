@@ -2,12 +2,12 @@ package code.services.email;
 
 import scala.util.Random
 
-import javax.annotation.Resource
-import javax.ejb.Stateless
-import javax.inject.Inject
-import javax.mail.{Session, Transport}
-import javax.mail.Message.RecipientType
-import javax.mail.internet.{InternetAddress, MimeMessage}
+import jakarta.annotation.Resource
+import jakarta.ejb.Stateless
+import jakarta.inject.Inject
+import jakarta.mail.{Session, Transport}
+import jakarta.mail.Message.RecipientType
+import jakarta.mail.internet.{InternetAddress, MimeMessage}
 
 trait EmailSenderService {
   def send(settings: EmailSettings, to: String, values: Map[String, Object])

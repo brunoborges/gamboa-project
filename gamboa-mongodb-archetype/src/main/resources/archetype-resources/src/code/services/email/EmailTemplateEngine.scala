@@ -1,11 +1,14 @@
-package code.services.email;
+package code.services.email
 
+import java.io.StringWriter
+
+import org.apache.velocity.VelocityContext
 import org.apache.velocity.app.VelocityEngine
-import org.springframework.beans.factory.annotation.Autowired
+import org.apache.velocity.runtime.RuntimeConstants
+import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
 import org.springframework.stereotype.Service
-import org.springframework.ui.velocity.VelocityEngineUtils
-import scala.reflect.BeanProperty
-import scala.collection.JavaConversions._
+
+import scala.jdk.CollectionConverters._
 
 trait EmailTemplateEngine {
   def transform(template: String, values: Map[String, Object]): String
@@ -14,11 +17,15 @@ trait EmailTemplateEngine {
 @Service
 class EmailTemplateEngineImpl extends EmailTemplateEngine {
 
-  @Autowired
-  var velocity: VelocityEngine = _
+  private val velocity = new VelocityEngine()
+  velocity.setProperty(RuntimeConstants.RESOURCE_LOADERS, "class")
+  velocity.setProperty("resource.loader.class.class", classOf[ClasspathResourceLoader].getName)
+  velocity.init()
 
   def transform(template: String, values: Map[String, Object]): String = {
-    VelocityEngineUtils.mergeTemplateIntoString(velocity, template, values)
+    val writer = new StringWriter()
+    velocity.mergeTemplate(template, "UTF-8", new VelocityContext(values.asJava), writer)
+    writer.toString
   }
 
 }

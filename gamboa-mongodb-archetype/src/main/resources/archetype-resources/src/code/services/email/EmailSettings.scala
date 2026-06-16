@@ -1,7 +1,7 @@
 package code.services.email
 
 import org.springframework.mail.javamail.JavaMailSender
-import scala.reflect.BeanProperty
+import scala.beans.BeanProperty
 
 class EmailSettings {
   @BeanProperty

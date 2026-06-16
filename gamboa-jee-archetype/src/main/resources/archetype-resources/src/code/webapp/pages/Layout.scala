@@ -1,7 +1,7 @@
 package code.webapp.pages
 
 import code.webapp.Session
-import org.wicketstuff.scala.Fodel
+import org.wicketstuff.scala.model.Fodel
 
 abstract class Layout extends Base {
   

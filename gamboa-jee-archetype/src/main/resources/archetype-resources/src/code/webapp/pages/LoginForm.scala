@@ -4,7 +4,7 @@ import code.webapp.Session
 import code.services.UserService
 import code.data.User
 
-import javax.inject.Inject
+import jakarta.inject.Inject
 
 import org.wicketstuff.scala.DSLWicket
 import org.apache.wicket.markup.html.form.{Button,SubmitLink,Form}

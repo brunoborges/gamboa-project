@@ -40,27 +40,6 @@
         <include>**/*.xml</include>
       </includes>
     </fileSet>
-    <fileSet filtered="true" encoding="UTF-8">
-      <directory></directory>
-      <includes>
-        <include>.project</include>
-        <include>.classpath</include>
-        <include>.scala_dependencies</include>
-        <include>maven-eclipse.xml</include>
-      </includes>
-    </fileSet>
-    <fileSet filtered="true" encoding="UTF-8">
-      <directory>.settings</directory>
-      <includes>
-        <include>**/*</include>
-      </includes>
-    </fileSet>
-    <fileSet filtered="true" encoding="UTF-8">
-      <directory>.externalToolBuilders</directory>
-      <includes>
-        <include>Maven_Ant_Builder.launch</include>
-      </includes>
-    </fileSet>
   </fileSets>
 </archetype-descriptor>
 

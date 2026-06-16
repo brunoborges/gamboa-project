@@ -2,7 +2,7 @@ package code
 
 import java.util.Collection
 
-import scala.reflect.BeanProperty
+import scala.beans.BeanProperty
 import org.springframework.security.core.GrantedAuthority
 
 class User(username: String, 

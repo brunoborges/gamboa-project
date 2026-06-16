@@ -10,6 +10,7 @@ import org.slf4j.{ LoggerFactory, Logger }
 import org.springframework.security.authentication.{ AuthenticationManager, UsernamePasswordAuthenticationToken }
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.context.SecurityContextHolder
+import scala.jdk.CollectionConverters._
 
 class Session(request: Request) extends AuthenticatedWebSession(request) {
 
@@ -50,8 +51,7 @@ class Session(request: Request) extends AuthenticatedWebSession(request) {
     val authentication = SecurityContextHolder.getContext()
       .getAuthentication()
 
-    var collectionAuthorities = List.fromArray[GrantedAuthority](authentication.getAuthorities().toArray(new Array[GrantedAuthority](0)))
-    collectionAuthorities.foreach(a => roles.add(a.getAuthority()))
+    authentication.getAuthorities().asScala.foreach(a => roles.add(a.getAuthority()))
   }
 
   override def signOut = {
