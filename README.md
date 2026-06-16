@@ -63,7 +63,7 @@ Here is the project structure Gamboa suggests for rapid development:
     |-- layout               --> .html files and presentation (.css, .js, images)
     |   |-- css              
     |   `-- js               --> your custom JS scripts
-    |       `-- vendor       --> js libs like jQuery, modernizr and respond
+    |       `-- vendor       --> js libs (Bootstrap bundle)
     |
     |-- pom.xml
 
@@ -105,9 +105,7 @@ Here's the list of all Gamboa integrated frameworks and technologies:
 
 2. Client-side libraries
 
-* jQuery 1.6.1
-* Modernizr 1.7
-* HTML5 Initializr (http://initializr.com/)
+* Bootstrap 5.3 (vendored locally; no jQuery required)
 
 Roadmap
 -------

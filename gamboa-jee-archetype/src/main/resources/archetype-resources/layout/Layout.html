@@ -1,44 +1,40 @@
 <wicket:extend>
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </a>
-                    <a class="brand" href="#" wicket:id="homeLink">${artifactId}</a>
-                    <div class="nav-collapse collapse pull-right">
-                        <ul class="nav">
-                            <li class="active"><a href="#">Home</a></li>
-                            <li><a href="#about">About</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                            <li class="dropdown" wicket:id="menuLoggedIn">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span wicket:id="labelUsername">your.name@yourdomain.com</span> <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-header">Nav header</li>
-                                    <li><a href="#">Settings</a></li>
-                                    <li><a href="#">Profile</a></li>
-                                    <li class="divider"></li>
-                                    <li><a wicket:id="logoutLink" href="#">Sign out</a></li>
-                                </ul>
-                            </li>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#" wicket:id="homeLink">${artifactId}</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item dropdown" wicket:id="menuLoggedIn">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><span wicket:id="labelUsername">your.name@yourdomain.com</span></a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><h6 class="dropdown-header">Account</h6></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" wicket:id="logoutLink" href="#">Sign out</a></li>
                         </ul>
-                        <form class="navbar-form pull-right" wicket:id="loginForm">
-                            <input class="span2" type="text" placeholder="Email" wicket:id="email">
-                            <input class="span2" type="password" placeholder="Password" wicket:id="password">
-                            <button type="submit" class="btn" wicket:id="login">Sign in</button>
-                        </form>
-                    </div><!--/.nav-collapse -->
-                </div>
+                    </li>
+                </ul>
+                <form class="d-flex" wicket:id="loginForm" role="search">
+                    <input class="form-control me-2" type="text" placeholder="Email" wicket:id="email">
+                    <input class="form-control me-2" type="password" placeholder="Password" wicket:id="password">
+                    <button type="submit" class="btn btn-outline-light" wicket:id="login">Sign in</button>
+                </form>
             </div>
         </div>
+    </nav>
 
-        <div class="container">
-        	<wicket:child />
-            <hr>
-            <footer>
-                <p>&copy; Gamboa Project 2012</p>
-            </footer>
-        </div> <!-- /container -->
+    <div class="container">
+        <wicket:child />
+        <hr>
+        <footer class="py-3 text-body-secondary">
+            <p>&copy; Gamboa Project</p>
+        </footer>
+    </div>
 </wicket:extend>

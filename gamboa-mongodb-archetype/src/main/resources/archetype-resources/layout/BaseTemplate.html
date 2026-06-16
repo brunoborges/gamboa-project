@@ -1,60 +1,48 @@
 <!doctype html>
 <html lang="en" class="no-js" xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
 <head>
-	<meta charset="UTF-8"></meta>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"></meta>
-
+	<meta charset="UTF-8">
 	<title>${artifactId}</title>
-	<meta name="description" content=""></meta>
-	<meta name="author" content=""></meta>
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-
-	<link rel="shortcut icon" href="favicon.ico"/>
-	<link rel="apple-touch-icon" href="apple-touch/apple-touch-icon.png"/>
-	<link rel="stylesheet" href="css/style.css?v=2"/>
-	<link rel="stylesheet" href="css/formee-structure.css?v=2"/>
-	<link rel="stylesheet" href="css/formee-style.css?v=2"/>
-	<link rel="stylesheet" media="handheld" href="css/handheld.css?v=2"/>
-
-	<script src="js/libs/modernizr-1.7.min.js"></script>
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="apple-touch-icon" href="apple-touch/apple-touch-icon.png">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script>document.documentElement.classList.replace('no-js', 'js');</script>
 </head>
-<body>
-	<div id="header-container">
-		<header class="wrapper">
-			<h1 id="title">${artifactId}</h1>
-			<nav>
-				<ul>
-					<li wicket:id="home"><a href="#" wicket:id="homeLink">Home</a></li>
-					<li wicket:id="signUp"><a href="#" wicket:id="signUpLink">Sign Up</a></li>
-					<li wicket:id="signIn"><a href="#" wicket:id="signInLink">Sign In</a></li>
-					<li wicket:id="logOut"><a href="#" wicket:id="logOutLink">Logout</a></li>
-					<li wicket:id="contact"><a href="#" wicket:id="contactLink">Contact Us</a></li>
-				</ul>
-			</nav>
-		</header>
-	</div>
-	<div id="main" class="wrapper">
+<body class="d-flex flex-column min-vh-100">
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<div class="container">
+				<a class="navbar-brand" href="#">${artifactId}</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarMain">
+					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+						<li class="nav-item" wicket:id="home"><a class="nav-link" href="#" wicket:id="homeLink">Home</a></li>
+						<li class="nav-item" wicket:id="signUp"><a class="nav-link" href="#" wicket:id="signUpLink">Sign Up</a></li>
+						<li class="nav-item" wicket:id="signIn"><a class="nav-link" href="#" wicket:id="signInLink">Sign In</a></li>
+						<li class="nav-item" wicket:id="logOut"><a class="nav-link" href="#" wicket:id="logOutLink">Logout</a></li>
+						<li class="nav-item" wicket:id="contact"><a class="nav-link" href="#" wicket:id="contactLink">Contact Us</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<main id="main" class="container flex-grow-1 py-4">
 		<wicket:child />
-	</div>
-	<div id="footer-container">
-		<footer class="wrapper">
-			<h3>A nice footer</h3>
-		</footer>
-	</div>
-	<p id="jquery-test" href="#" class="info">jQuery is not loaded (http://localhost/ needed)</p>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-	<script>!window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.6.1.min.js"%3E%3C/script%3E'))</script>
+	</main>
+	<footer class="bg-dark text-light py-3 mt-auto">
+		<div class="container">
+			<h3 class="h6 mb-0">A nice footer</h3>
+		</div>
+	</footer>
+
+	<script src="js/vendor/bootstrap.bundle.min.js"></script>
 	<script src="js/script.js"></script>
-	<!--[if lt IE 7 ]>
-	<script src="js/libs/dd_belatedpng.js"></script>
-	<script> DD_belatedPNG.fix('img, .png_bg');</script>
-	<![endif]-->
-	<script>
-		var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']]; // Change UA-XXXXX-X to be your site's ID
-		(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
-		g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-		s.parentNode.insertBefore(g,s)}(document,'script'));
-	</script>
 </body>
 </html>
