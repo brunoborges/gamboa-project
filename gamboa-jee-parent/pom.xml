@@ -20,7 +20,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <jakartaee.version>10.0.0</jakartaee.version>
-    <mysql.version>8.0.33</mysql.version>
+    <mysql.version>8.4.0</mysql.version>
   </properties>
 
   <dependencyManagement>
